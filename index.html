@@ -1,0 +1,1273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OER Interview Guide - Library Staff | Open University of Tanzania</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body { font-family: 'Inter', sans-serif; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); min-height: 100vh; }
+        .serif { font-family: 'Merriweather', serif; }
+        .glass-panel { background: rgba(255, 255, 255, 0.98); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.2); }
+        .question-card { transition: all 0.3s ease; border-left: 4px solid transparent; }
+        .question-card:hover { border-left-color: #667eea; transform: translateX(5px); }
+        .option-hover:hover { background-color: #f3f4f6; transform: translateX(5px); }
+        .progress-bar { transition: width 0.5s ease; }
+        .section-hidden { display: none; }
+        .fade-in { animation: fadeIn 0.5s ease-in; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        .radio-custom:checked + div { background-color: #667eea; color: white; border-color: #667eea; }
+        .checkbox-custom:checked + div { background-color: #667eea; color: white; border-color: #667eea; }
+        .sticky-nav { position: sticky; top: 0; z-index: 50; backdrop-filter: blur(10px); }
+        .textarea-field { transition: all 0.3s ease; }
+        .textarea-field:focus { border-color: #667eea; box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.15); }
+        .char-counter { font-size: 11px; color: #9ca3af; text-align: right; margin-top: 4px; }
+        .consent-box { background-color: #ecfdf5; border-left: 4px solid #10b981; }
+    </style>
+<base target="_blank">
+</head>
+<body class="pb-20">
+
+    <div class="sticky-nav bg-white/95 border-b border-gray-200 shadow-sm">
+        <div class="max-w-6xl mx-auto px-4 py-3">
+            <div class="flex justify-between items-center mb-2">
+                <span class="text-sm font-semibold text-gray-600">Interview Progress</span>
+                <span class="text-sm font-bold text-indigo-600" id="progress-text">0% Complete</span>
+            </div>
+            <div class="w-full bg-gray-200 rounded-full h-2.5">
+                <div class="bg-indigo-600 h-2.5 rounded-full progress-bar" id="progress-bar" style="width: 0%"></div>
+            </div>
+            <div class="flex justify-between mt-2 text-xs text-gray-500 overflow-x-auto space-x-2">
+                <button onclick="scrollToSection('intro')" class="hover:text-indigo-600 whitespace-nowrap px-2 py-1 rounded hover:bg-gray-100">Intro</button>
+                <button onclick="scrollToSection('section-a')" class="hover:text-indigo-600 whitespace-nowrap px-2 py-1 rounded hover:bg-gray-100">A: Background</button>
+                <button onclick="scrollToSection('section-b')" class="hover:text-indigo-600 whitespace-nowrap px-2 py-1 rounded hover:bg-gray-100">B: Awareness</button>
+                <button onclick="scrollToSection('section-c')" class="hover:text-indigo-600 whitespace-nowrap px-2 py-1 rounded hover:bg-gray-100">C: Utilization</button>
+                <button onclick="scrollToSection('section-d')" class="hover:text-indigo-600 whitespace-nowrap px-2 py-1 rounded hover:bg-gray-100">D: Attitudes</button>
+                <button onclick="scrollToSection('section-e')" class="hover:text-indigo-600 whitespace-nowrap px-2 py-1 rounded hover:bg-gray-100">E: Challenges</button>
+                <button onclick="scrollToSection('section-f')" class="hover:text-indigo-600 whitespace-nowrap px-2 py-1 rounded hover:bg-gray-100">F: Framework</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="max-w-5xl mx-auto px-4 py-6">
+
+        <div class="glass-panel rounded-2xl shadow-2xl p-6 mb-6 text-center" id="intro">
+            <div class="inline-block p-3 rounded-full bg-indigo-100 mb-4">
+                <i class="fas fa-microphone-alt text-3xl text-indigo-600"></i>
+            </div>
+            <h1 class="serif text-2xl md:text-4xl font-bold text-gray-800 mb-2">INTERVIEW GUIDE</h1>
+            <p class="text-base text-gray-600 mb-2 font-semibold">Open University of Tanzania</p>
+            <div class="w-20 h-1 bg-indigo-600 mx-auto mb-4"></div>
+            <h2 class="text-lg md:text-xl font-bold text-gray-800 mb-4 leading-relaxed px-4">
+                Utilization of Open Educational Resources (OER) to Support Teaching and Learning for Undergraduate Distance Students
+            </h2>
+            <div class="bg-indigo-50 rounded-lg p-3 text-sm text-indigo-800">
+                <i class="fas fa-user-tie mr-2"></i> To be administered to <strong>Library Staff</strong>
+            </div>
+            <div class="mt-3 text-xs text-gray-500">
+                <p><strong>Researcher:</strong> Nelson Msagati | <strong>Date:</strong> 22nd August, 2026</p>
+                <p class="mt-1"><strong>Institution:</strong> University of South Africa (UNISA) &mdash; PhD Study</p>
+            </div>
+        </div>
+
+        <div class="glass-panel rounded-2xl shadow-xl p-6 mb-6 fade-in">
+            <h3 class="text-lg font-bold text-gray-800 mb-3 flex items-center">
+                <i class="fas fa-envelope-open-text text-indigo-600 mr-2"></i>
+                Dear Library Staff,
+            </h3>
+            <div class="prose text-gray-700 leading-relaxed space-y-3 text-sm">
+                <p>I am a doctoral candidate at the <strong>University of South Africa (UNISA)</strong>, currently conducting research as part of my PhD study titled:</p>
+                <p class="bg-indigo-50 p-3 rounded-lg font-medium text-indigo-800 text-center">
+                    &quot;Utilization of Open Educational Resources (OER) to Support Teaching and Learning for Distance Students at the Open University of Tanzania.&quot;
+                </p>
+                <p>The purpose of this interview is to gather expert insights from academic and administrative leaders to better understand the <strong>awareness, use, attitudes, and challenges</strong> related to Open Educational Resources (OER) at the Open University of Tanzania (OUT).</p>
+                <p>Your participation is important as it will contribute to the development of a proposed <strong>institutional framework</strong> to enhance the effective use of OER in supporting distance education.</p>
+                <div class="bg-blue-50 border-l-4 border-blue-500 p-3 my-3 rounded-r">
+                    <p class="font-semibold text-blue-800 mb-1 text-sm">Important Information:</p>
+                    <ul class="list-disc list-inside space-y-1 text-blue-700 text-xs">
+                        <li>This interview is <strong>semi-structured</strong> and expected to take approximately <strong>30 to 45 minutes</strong></li>
+                        <li>With your permission, the conversation will be <strong>audio-recorded</strong> for accuracy during transcription</li>
+                        <li>Participation is entirely <strong>voluntary</strong> &mdash; you may withdraw at any time</li>
+                        <li>You may <strong>decline to answer</strong> any question without consequences</li>
+                        <li>All responses treated with <strong>strictest confidentiality</strong></li>
+                        <li>No identifying information disclosed in the final report</li>
+                        <li>Data used solely for <strong>academic purposes</strong> per UNISA ethics policy</li>
+                    </ul>
+                </div>
+                <p class="font-semibold text-gray-800 text-sm">Thank you for your time and willingness to support this research.</p>
+            </div>
+
+            <div class="consent-box rounded-lg p-4 mt-4">
+                <h4 class="font-bold text-green-800 mb-2 flex items-center text-sm">
+                    <i class="fas fa-handshake mr-2"></i> Informed Consent
+                </h4>
+                <p class="text-sm text-green-700 mb-3">Do I have your informed consent to proceed with this interview and to record our discussion?</p>
+                <div class="flex gap-4">
+                    <label class="cursor-pointer flex items-center gap-2 p-3 rounded-lg border-2 border-green-200 bg-white hover:bg-green-50 transition-all flex-1 justify-center">
+                        <input type="radio" name="consent" value="Yes" class="w-5 h-5 text-green-600" onchange="checkConsent()">
+                        <span class="font-semibold text-green-800">Yes, I consent</span>
+                    </label>
+                    <label class="cursor-pointer flex items-center gap-2 p-3 rounded-lg border-2 border-red-200 bg-white hover:bg-red-50 transition-all flex-1 justify-center">
+                        <input type="radio" name="consent" value="No" class="w-5 h-5 text-red-600" onchange="checkConsent()">
+                        <span class="font-semibold text-red-800">No, I do not consent</span>
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        <form id="interview-form" onsubmit="return false;">
+            
+            <!-- SECTION A: BACKGROUND INFORMATION -->
+            <div class="glass-panel rounded-2xl shadow-xl p-6 mb-6 section-hidden" id="section-a">
+                <div class="flex items-center mb-4 pb-3 border-b-2 border-indigo-100">
+                    <div class="w-10 h-10 rounded-full bg-indigo-600 text-white flex items-center justify-center text-lg font-bold mr-3">A</div>
+                    <div>
+                        <h2 class="text-xl font-bold text-gray-800">BACKGROUND INFORMATION</h2>
+                        <p class="text-gray-600 text-xs">Position and responsibilities related to OER</p>
+                    </div>
+                </div>
+                <div class="question-card bg-white rounded-lg p-4 mb-4 shadow-sm border border-gray-100" data-section="A">
+                    <h3 class="font-semibold text-gray-800 mb-3 flex items-center text-sm">
+                        <span class="bg-indigo-100 text-indigo-700 rounded-full w-6 h-6 flex items-center justify-center text-xs mr-2">1</span>
+                        Please describe your current position and responsibilities in relation to Open Educational Resources (OER) and electronic resource management at the Open University of Tanzania.
+                    </h3>
+                    <textarea name="q1_position" class="w-full p-3 border-2 border-gray-200 rounded-lg textarea-field text-sm" rows="5" placeholder="Describe your role, duties, and how they relate to OER and electronic resource management..." oninput="updateCharCount(this); updateProgress()"></textarea>
+                    <div class="char-counter">0 characters</div>
+                </div>
+            </div>
+
+            <!-- SECTION B: AWARENESS OF OER -->
+            <div class="glass-panel rounded-2xl shadow-xl p-6 mb-6 section-hidden" id="section-b">
+                <div class="flex items-center mb-4 pb-3 border-b-2 border-indigo-100">
+                    <div class="w-10 h-10 rounded-full bg-indigo-600 text-white flex items-center justify-center text-lg font-bold mr-3">B</div>
+                    <div>
+                        <h2 class="text-xl font-bold text-gray-800">AWARENESS OF OER</h2>
+                        <p class="text-gray-600 text-xs">Student awareness and library strategies</p>
+                    </div>
+                </div>
+
+                <div class="question-card bg-white rounded-lg p-4 mb-4 shadow-sm border border-gray-100" data-section="B">
+                    <h3 class="font-semibold text-gray-800 mb-3 flex items-center text-sm">
+                        <span class="bg-indigo-100 text-indigo-700 rounded-full w-6 h-6 flex items-center justify-center text-xs mr-2">2</span>
+                        In your opinion, how aware are undergraduate distance students of the OER available through the university library?
+                    </h3>
+                    <div class="space-y-2 text-sm">
+                        <label class="cursor-pointer option-hover p-3 rounded-lg border-2 border-gray-200 transition-all block">
+                            <input type="radio" name="q2_awareness" value="Not aware at all" class="hidden radio-custom" onchange="updateProgress()">
+                            <div class="flex items-center"><i class="fas fa-times-circle text-red-500 mr-3 text-lg"></i>
+                                <div><span class="font-medium block">Not aware at all</span><span class="text-xs text-gray-500">Students have no knowledge of OER availability</span></div>
+                            </div>
+                        </label>
+                        <label class="cursor-pointer option-hover p-3 rounded-lg border-2 border-gray-200 transition-all block">
+                            <input type="radio" name="q2_awareness" value="Slightly aware" class="hidden radio-custom" onchange="updateProgress()">
+                            <div class="flex items-center"><i class="fas fa-minus-circle text-orange-500 mr-3 text-lg"></i>
+                                <div><span class="font-medium block">Slightly aware</span><span class="text-xs text-gray-500">Minimal awareness of OER existence</span></div>
+                            </div>
+                        </label>
+                        <label class="cursor-pointer option-hover p-3 rounded-lg border-2 border-gray-200 transition-all block">
+                            <input type="radio" name="q2_awareness" value="Moderately aware" class="hidden radio-custom" onchange="updateProgress()">
+                            <div class="flex items-center"><i class="fas fa-info-circle text-yellow-500 mr-3 text-lg"></i>
+                                <div><span class="font-medium block">Moderately aware</span><span class="text-xs text-gray-500">Some knowledge but limited understanding</span></div>
+                            </div>
+                        </label>
+                        <label class="cursor-pointer option-hover p-3 rounded-lg border-2 border-gray-200 transition-all block">
+                            <input type="radio" name="q2_awareness" value="Very aware" class="hidden radio-custom" onchange="updateProgress()">
+                            <div class="flex items-center"><i class="fas fa-check-circle text-green-500 mr-3 text-lg"></i>
+                                <div><span class="font-medium block">Very aware</span><span class="text-xs text-gray-500">Good understanding of available OER</span></div>
+                            </div>
+                        </label>
+                        <label class="cursor-pointer option-hover p-3 rounded-lg border-2 border-gray-200 transition-all block">
+                            <input type="radio" name="q2_awareness" value="Extremely aware" class="hidden radio-custom" onchange="updateProgress()">
+                            <div class="flex items-center"><i class="fas fa-star text-indigo-500 mr-3 text-lg"></i>
+                                <div><span class="font-medium block">Extremely aware</span><span class="text-xs text-gray-500">Comprehensive knowledge and active use</span></div>
+                            </div>
+                        </label>
+                    </div>
+                    <div class="mt-3">
+                        <label class="block text-xs font-medium text-gray-700 mb-1">Please elaborate on your assessment:</label>
+                        <textarea name="q2_elaborate" class="w-full p-2 border border-gray-300 rounded text-xs" rows="2" placeholder="Provide evidence or examples supporting your assessment..." oninput="updateCharCount(this); updateProgress()"></textarea>
+                        <div class="char-counter">0 characters</div>
+                    </div>
+                </div>
+
+                <div class="question-card bg-white rounded-lg p-4 mb-4 shadow-sm border border-gray-100" data-section="B">
+                    <h3 class="font-semibold text-gray-800 mb-3 flex items-center text-sm">
+                        <span class="bg-indigo-100 text-indigo-700 rounded-full w-6 h-6 flex items-center justify-center text-xs mr-2">3</span>
+                        What evidence indicates the level of students' awareness of OER?
+                    </h3>
+                    <textarea name="q3_evidence" class="w-full p-3 border-2 border-gray-200 rounded-lg textarea-field text-sm" rows="4" placeholder="Describe any data, observations, or metrics that demonstrate student awareness levels..." oninput="updateCharCount(this); updateProgress()"></textarea>
+                    <div class="char-counter">0 characters</div>
+                </div>
+
+                <div class="question-card bg-white rounded-lg p-4 mb-4 shadow-sm border border-gray-100" data-section="B">
+                    <h3 class="font-semibold text-gray-800 mb-3 flex items-center text-sm">
+                        <span class="bg-indigo-100 text-indigo-700 rounded-full w-6 h-6 flex items-center justify-center text-xs mr-2">4</span>
+                        What strategies has the library implemented to create awareness of OER among distance students?
+                    </h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-2 text-xs mb-3">
+                        <label class="cursor-pointer option-hover p-2 rounded-lg border-2 border-gray-200 transition-all">
+                            <input type="checkbox" name="q4_strategies" value="Email campaigns" class="hidden checkbox-custom" onchange="updateProgress()">
+                            <div class="flex items-center"><i class="fas fa-envelope mr-2 text-blue-500"></i><span>Email campaigns / newsletters</span></div>
+                        </label>
+                        <label class="cursor-pointer option-hover p-2 rounded-lg border-2 border-gray-200 transition-all">
+                            <input type="checkbox" name="q4_strategies" value="Social media" class="hidden checkbox-custom" onchange="updateProgress()">
+                            <div class="flex items-center"><i class="fas fa-share-alt mr-2 text-purple-500"></i><span>Social media announcements</span></div>
+                        </label>
+                        <label class="cursor-pointer option-hover p-2 rounded-lg border-2 border-gray-200 transition-all">
+                            <input type="checkbox" name="q4_strategies" value="Orientation sessions" class="hidden checkbox-custom" onchange="updateProgress()">
+                            <div class="flex items-center"><i class="fas fa-chalkboard-teacher mr-2 text-green-500"></i><span>Orientation sessions</span></div>
+                        </label>
+                        <label class="cursor-pointer option-hover p-2 rounded-lg border-2 border-gray-200 transition-all">
+                            <input type="checkbox" name="q4_strategies" value="Library guides" class="hidden checkbox-custom" onchange="updateProgress()">
+                            <div class="flex items-center"><i class="fas fa-book mr-2 text-orange-500"></i><span>Library guides / brochures</span></div>
+                        </label>
+                        <label class="cursor-pointer option-hover p-2 rounded-lg border-2 border-gray-200 transition-all">
+                            <input type="checkbox" name="q4_strategies" value="Workshops" class="hidden checkbox-custom" onchange="updateProgress()">
+                            <div class="flex items-center"><i class="fas fa-users mr-2 text-teal-500"></i><span>Workshops / training</span></div>
+                        </label>
+                        <label class="cursor-pointer option-hover p-2 rounded-lg border-2 border-gray-200 transition-all">
+                            <input type="checkbox" name="q4_strategies" value="Website promotion" class="hidden checkbox-custom" onchange="updateProgress()">
+                            <div class="flex items-center"><i class="fas fa-globe mr-2 text-indigo-500"></i><span>Website promotion</span></div>
+                        </label>
+                        <label class="cursor-pointer option-hover p-2 rounded-lg border-2 border-gray-200 transition-all">
+                            <input type="checkbox" name="q4_strategies" value="Tutor referrals" class="hidden checkbox-custom" onchange="updateProgress()">
+                            <div class="flex items-center"><i class="fas fa-user-graduate mr-2 text-red-500"></i><span>Tutor / lecturer referrals</span></div>
+                        </label>
+                        <label class="cursor-pointer option-hover p-2 rounded-lg border-2 border-gray-200 transition-all">
+                            <input type="checkbox" name="q4_strategies" value="No specific strategies" class="hidden checkbox-custom" onchange="updateProgress()">
+                            <div class="flex items-center"><i class="fas fa-ban mr-2 text-gray-500"></i><span>No specific strategies</span></div>
+                        </label>
+                        <label class="cursor-pointer option-hover p-2 rounded-lg border-2 border-gray-200 transition-all md:col-span-2">
+                            <input type="checkbox" name="q4_strategies" value="Others" class="hidden checkbox-custom" onchange="toggleSpecify(this, 'q4-specify')">
+                            <div class="flex items-center justify-between">
+                                <span class="flex items-center"><i class="fas fa-ellipsis-h mr-2 text-gray-500"></i><span>Others (Specify)</span></span>
+                                <input type="text" id="q4-specify" class="hidden ml-2 flex-1 p-1 border rounded" placeholder="Specify...">
+                            </div>
+                        </label>
+                    </div>
+                    <textarea name="q4_details" class="w-full p-3 border-2 border-gray-200 rounded-lg textarea-field text-sm" rows="3" placeholder="Provide additional details about these strategies and their effectiveness..." oninput="updateCharCount(this); updateProgress()"></textarea>
+                    <div class="char-counter">0 characters</div>
+                </div>
+
+                <div class="question-card bg-white rounded-lg p-4 mb-4 shadow-sm border border-gray-100" data-section="B">
+                    <h3 class="font-semibold text-gray-800 mb-3 flex items-center text-sm">
+                        <span class="bg-indigo-100 text-indigo-700 rounded-full w-6 h-6 flex items-center justify-center text-xs mr-2">5</span>
+                        What information literacy or training initiatives are provided to help distance students identify, access, and effectively use OER?
+                    </h3>
+                    <textarea name="q5_training" class="w-full p-3 border-2 border-gray-200 rounded-lg textarea-field text-sm" rows="5" placeholder="Describe training programs, workshops, online tutorials, or other initiatives aimed at building students' OER skills..." oninput="updateCharCount(this); updateProgress()"></textarea>
+                    <div class="char-counter">0 characters</div>
+                </div>
+            </div>
+
+            <!-- SECTION C: UTILIZATION OF OER BY STUDENTS -->
+            <div class="glass-panel rounded-2xl shadow-xl p-6 mb-6 section-hidden" id="section-c">
+                <div class="flex items-center mb-4 pb-3 border-b-2 border-indigo-100">
+                    <div class="w-10 h-10 rounded-full bg-indigo-600 text-white flex items-center justify-center text-lg font-bold mr-3">C</div>
+                    <div>
+                        <h2 class="text-xl font-bold text-gray-800">UTILIZATION OF OER BY STUDENTS</h2>
+                        <p class="text-gray-600 text-xs">Access patterns, monitoring, and academic integration</p>
+                    </div>
+                </div>
+
+                <div class="question-card bg-white rounded-lg p-4 mb-4 shadow-sm border border-gray-100" data-section="C">
+                    <h3 class="font-semibold text-gray-800 mb-3 flex items-center text-sm">
+                        <span class="bg-indigo-100 text-indigo-700 rounded-full w-6 h-6 flex items-center justify-center text-xs mr-2">6</span>
+                        What types of OER are available to undergraduate distance students at OUT?
+                    </h3>
+                    <div class="grid grid-cols-2 md:grid-cols-3 gap-2 text-xs mb-3">
+                        <label class="cursor-pointer option-hover p-2 rounded-lg border-2 border-gray-200 transition-all">
+                            <input type="checkbox" name="q6_types" value="Open textbooks" class="hidden checkbox-custom" onchange="updateProgress()">
+                            <div class="flex items-center"><i class="fas fa-book-open mr-2 text-blue-500"></i><span>Open textbooks</span></div>
+                        </label>
+                        <label class="cursor-pointer option-hover p-2 rounded-lg border-2 border-gray-200 transition-all">
+                            <input type="checkbox" name="q6_types" value="Lecture notes" class="hidden checkbox-custom" onchange="updateProgress()">
+                            <div class="flex items-center"><i class="fas fa-file-alt mr-2 text-green-500"></i><span>Lecture notes</span></div>
+                        </label>
+                        <label class="cursor-pointer option-hover p-2 rounded-lg border-2 border-gray-200 transition-all">
+                            <input type="checkbox" name="q6_types" value="Video lectures" class="hidden checkbox-custom" onchange="updateProgress()">
+                            <div class="flex items-center"><i class="fas fa-video mr-2 text-red-500"></i><span>Video lectures</span></div>
+                        </label>
+                        <label class="cursor-pointer option-hover p-2 rounded-lg border-2 border-gray-200 transition-all">
+                            <input type="checkbox" name="q6_types" value="Interactive modules" class="hidden checkbox-custom" onchange="updateProgress()">
+                            <div class="flex items-center"><i class="fas fa-cubes mr-2 text-purple-500"></i><span>Interactive modules</span></div>
+                        </label>
+                        <label class="cursor-pointer option-hover p-2 rounded-lg border-2 border-gray-200 transition-all">
+                            <input type="checkbox" name="q6_types" value="Simulations" class="hidden checkbox-custom" onchange="updateProgress()">
+                            <div class="flex items-center"><i class="fas fa-vr-cardboard mr-2 text-orange-500"></i><span>Simulations</span></div>
+                        </label>
+                        <label class="cursor-pointer option-hover p-2 rounded-lg border-2 border-gray-200 transition-all">
+                            <input type="checkbox" name="q6_types" value="Courseware" class="hidden checkbox-custom" onchange="updateProgress()">
+                            <div class="flex items-center"><i class="fas fa-laptop-code mr-2 text-teal-500"></i><span>Courseware</span></div>
+                        </label>
+                        <label class="cursor-pointer option-hover p-2 rounded-lg border-2 border-gray-200 transition-all">
+                            <input type="checkbox" name="q6_types" value="Assignments/Tests" class="hidden checkbox-custom" onchange="updateProgress()">
+                            <div class="flex items-center"><i class="fas fa-tasks mr-2 text-yellow-500"></i><span>Assignments / Tests</span></div>
+                        </label>
+                        <label class="cursor-pointer option-hover p-2 rounded-lg border-2 border-gray-200 transition-all">
+                            <input type="checkbox" name="q6_types" value="Research articles" class="hidden checkbox-custom" onchange="updateProgress()">
+                            <div class="flex items-center"><i class="fas fa-file-pdf mr-2 text-red-400"></i><span>Research articles</span></div>
+                        </label>
+                        <label class="cursor-pointer option-hover p-2 rounded-lg border-2 border-gray-200 transition-all md:col-span-3">
+                            <input type="checkbox" name="q6_types" value="Others" class="hidden checkbox-custom" onchange="toggleSpecify(this, 'q6-specify')">
+                            <div class="flex items-center justify-between">
+                                <span class="flex items-center"><i class="fas fa-ellipsis-h mr-2 text-gray-500"></i><span>Others (Specify)</span></span>
+                                <input type="text" id="q6-specify" class="hidden ml-2 flex-1 p-1 border rounded" placeholder="Specify...">
+                            </div>
+                        </label>
+                    </div>
+                    <textarea name="q6_details" class="w-full p-3 border-2 border-gray-200 rounded-lg textarea-field text-sm" rows="3" placeholder="Provide additional details about the OER collection, platforms used, and how they are curated..." oninput="updateCharCount(this); updateProgress()"></textarea>
+                    <div class="char-counter">0 characters</div>
+                </div>
+
+                <div class="question-card bg-white rounded-lg p-4 mb-4 shadow-sm border border-gray-100" data-section="C">
+                    <h3 class="font-semibold text-gray-800 mb-3 flex items-center text-sm">
+                        <span class="bg-indigo-100 text-indigo-700 rounded-full w-6 h-6 flex items-center justify-center text-xs mr-2">7</span>
+                        How do students access and utilize these OER for their academic activities?
+                    </h3>
+                    <textarea name="q7_access" class="w-full p-3 border-2 border-gray-200 rounded-lg textarea-field text-sm" rows="5" placeholder="Describe the access methods (platforms, portals, mobile apps), usage patterns, and how students integrate OER into their studies..." oninput="updateCharCount(this); updateProgress()"></textarea>
+                    <div class="char-counter">0 characters</div>
+                </div>
+
+                <div class="question-card bg-white rounded-lg p-4 mb-4 shadow-sm border border-gray-100" data-section="C">
+                    <h3 class="font-semibold text-gray-800 mb-3 flex items-center text-sm">
+                        <span class="bg-indigo-100 text-indigo-700 rounded-full w-6 h-6 flex items-center justify-center text-xs mr-2">8</span>
+                        Which OER are most frequently utilized by students, and for what academic purposes?
+                    </h3>
+                    <textarea name="q8_frequent" class="w-full p-3 border-2 border-gray-200 rounded-lg textarea-field text-sm" rows="5" placeholder="Identify the most popular OER types/repositories and describe the academic purposes (assignments, exam prep, research, etc.)..." oninput="updateCharCount(this); updateProgress()"></textarea>
+                    <div class="char-counter">0 characters</div>
+                </div>
+
+                <div class="question-card bg-white rounded-lg p-4 mb-4 shadow-sm border border-gray-100" data-section="C">
+                    <h3 class="font-semibold text-gray-800 mb-3 flex items-center text-sm">
+                        <span class="bg-indigo-100 text-indigo-700 rounded-full w-6 h-6 flex items-center justify-center text-xs mr-2">9</span>
+                        How does the library monitor or evaluate the utilization of OER by distance students?
+                    </h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-2 text-xs mb-3">
+                        <label class="cursor-pointer option-hover p-2 rounded-lg border-2 border-gray-200 transition-all">
+                            <input type="checkbox" name="q9_monitoring" value="Usage analytics" class="hidden checkbox-custom" onchange="updateProgress()">
+                            <div class="flex items-center"><i class="fas fa-chart-line mr-2 text-blue-500"></i><span>Usage analytics / statistics</span></div>
+                        </label>
+                        <label class="cursor-pointer option-hover p-2 rounded-lg border-2 border-gray-200 transition-all">
+                            <input type="checkbox" name="q9_monitoring" value="User surveys" class="hidden checkbox-custom" onchange="updateProgress()">
+                            <div class="flex items-center"><i class="fas fa-poll mr-2 text-green-500"></i><span>User surveys / feedback</span></div>
+                        </label>
+                        <label class="cursor-pointer option-hover p-2 rounded-lg border-2 border-gray-200 transition-all">
+                            <input type="checkbox" name="q9_monitoring" value="Focus groups" class="hidden checkbox-custom" onchange="updateProgress()">
+                            <div class="flex items-center"><i class="fas fa-users mr-2 text-purple-500"></i><span>Focus groups / interviews</span></div>
+                        </label>
+                        <label class="cursor-pointer option-hover p-2 rounded-lg border-2 border-gray-200 transition-all">
+                            <input type="checkbox" name="q9_monitoring" value="Download counts" class="hidden checkbox-custom" onchange="updateProgress()">
+                            <div class="flex items-center"><i class="fas fa-download mr-2 text-orange-500"></i><span>Download / access counts</span></div>
+                        </label>
+                        <label class="cursor-pointer option-hover p-2 rounded-lg border-2 border-gray-200 transition-all">
+                            <input type="checkbox" name="q9_monitoring" value="No formal monitoring" class="hidden checkbox-custom" onchange="updateProgress()">
+                            <div class="flex items-center"><i class="fas fa-ban mr-2 text-red-500"></i><span>No formal monitoring</span></div>
+                        </label>
+                        <label class="cursor-pointer option-hover p-2 rounded-lg border-2 border-gray-200 transition-all md:col-span-2">
+                            <input type="checkbox" name="q9_monitoring" value="Others" class="hidden checkbox-custom" onchange="toggleSpecify(this, 'q9-specify')">
+                            <div class="flex items-center justify-between">
+                                <span class="flex items-center"><i class="fas fa-ellipsis-h mr-2 text-gray-500"></i><span>Others (Specify)</span></span>
+                                <input type="text" id="q9-specify" class="hidden ml-2 flex-1 p-1 border rounded" placeholder="Specify...">
+                            </div>
+                        </label>
+                    </div>
+                    <textarea name="q9_details" class="w-full p-3 border-2 border-gray-200 rounded-lg textarea-field text-sm" rows="3" placeholder="Elaborate on monitoring methods, frequency, and how data is used..." oninput="updateCharCount(this); updateProgress()"></textarea>
+                    <div class="char-counter">0 characters</div>
+                </div>
+
+                <div class="question-card bg-white rounded-lg p-4 mb-4 shadow-sm border border-gray-100" data-section="C">
+                    <h3 class="font-semibold text-gray-800 mb-3 flex items-center text-sm">
+                        <span class="bg-indigo-100 text-indigo-700 rounded-full w-6 h-6 flex items-center justify-center text-xs mr-2">10</span>
+                        How does OUT ensure the quality, relevance, and suitability of OER provided to distance students?
+                    </h3>
+                    <textarea name="q10_quality" class="w-full p-3 border-2 border-gray-200 rounded-lg textarea-field text-sm" rows="5" placeholder="Describe quality control processes, review mechanisms, relevance checks, and suitability assessments..." oninput="updateCharCount(this); updateProgress()"></textarea>
+                    <div class="char-counter">0 characters</div>
+                </div>
+
+                <div class="question-card bg-white rounded-lg p-4 mb-4 shadow-sm border border-gray-100" data-section="C">
+                    <h3 class="font-semibold text-gray-800 mb-3 flex items-center text-sm">
+                        <span class="bg-indigo-100 text-indigo-700 rounded-full w-6 h-6 flex items-center justify-center text-xs mr-2">11</span>
+                        What role do academic staff play in promoting and integrating OER into distance learning?
+                    </h3>
+                    <textarea name="q11_staff_role" class="w-full p-3 border-2 border-gray-200 rounded-lg textarea-field text-sm" rows="5" placeholder="Describe how lecturers, tutors, and academic departments support or encourage OER use among students..." oninput="updateCharCount(this); updateProgress()"></textarea>
+                    <div class="char-counter">0 characters</div>
+                </div>
+            </div>
+
+            <!-- SECTION D: ATTITUDES TOWARDS OER UTILIZATION -->
+            <div class="glass-panel rounded-2xl shadow-xl p-6 mb-6 section-hidden" id="section-d">
+                <div class="flex items-center mb-4 pb-3 border-b-2 border-indigo-100">
+                    <div class="w-10 h-10 rounded-full bg-indigo-600 text-white flex items-center justify-center text-lg font-bold mr-3">D</div>
+                    <div>
+                        <h2 class="text-xl font-bold text-gray-800">ATTITUDES TOWARDS OER UTILIZATION</h2>
+                        <p class="text-gray-600 text-xs">Student perceptions and influencing factors</p>
+                    </div>
+                </div>
+
+                <div class="question-card bg-white rounded-lg p-4 mb-4 shadow-sm border border-gray-100" data-section="D">
+                    <h3 class="font-semibold text-gray-800 mb-3 flex items-center text-sm">
+                        <span class="bg-indigo-100 text-indigo-700 rounded-full w-6 h-6 flex items-center justify-center text-xs mr-2">12</span>
+                        Based on your experience, what are students' attitudes towards using OER?
+                    </h3>
+                    <div class="space-y-2 text-sm mb-3">
+                        <label class="cursor-pointer option-hover p-3 rounded-lg border-2 border-gray-200 transition-all block">
+                            <input type="radio" name="q12_attitude" value="Very positive" class="hidden radio-custom" onchange="updateProgress()">
+                            <div class="flex items-center"><i class="fas fa-smile-beam text-green-500 mr-3 text-lg"></i>
+                                <div><span class="font-medium block">Very positive</span><span class="text-xs text-gray-500">Students are enthusiastic and actively seek OER</span></div>
+                            </div>
+                        </label>
+                        <label class="cursor-pointer option-hover p-3 rounded-lg border-2 border-gray-200 transition-all block">
+                            <input type="radio" name="q12_attitude" value="Positive" class="hidden radio-custom" onchange="updateProgress()">
+                            <div class="flex items-center"><i class="fas fa-smile text-green-400 mr-3 text-lg"></i>
+                                <div><span class="font-medium block">Positive</span><span class="text-xs text-gray-500">Generally receptive and willing to use OER</span></div>
+                            </div>
+                        </label>
+                        <label class="cursor-pointer option-hover p-3 rounded-lg border-2 border-gray-200 transition-all block">
+                            <input type="radio" name="q12_attitude" value="Neutral" class="hidden radio-custom" onchange="updateProgress()">
+                            <div class="flex items-center"><i class="fas fa-meh text-yellow-500 mr-3 text-lg"></i>
+                                <div><span class="font-medium block">Neutral</span><span class="text-xs text-gray-500">Indifferent or unaware of OER benefits</span></div>
+                            </div>
+                        </label>
+                        <label class="cursor-pointer option-hover p-3 rounded-lg border-2 border-gray-200 transition-all block">
+                            <input type="radio" name="q12_attitude" value="Negative" class="hidden radio-custom" onchange="updateProgress()">
+                            <div class="flex items-center"><i class="fas fa-frown text-orange-500 mr-3 text-lg"></i>
+                                <div><span class="font-medium block">Negative</span><span class="text-xs text-gray-500">Skeptical or resistant to using OER</span></div>
+                            </div>
+                        </label>
+                        <label class="cursor-pointer option-hover p-3 rounded-lg border-2 border-gray-200 transition-all block">
+                            <input type="radio" name="q12_attitude" value="Very negative" class="hidden radio-custom" onchange="updateProgress()">
+                            <div class="flex items-center"><i class="fas fa-angry text-red-500 mr-3 text-lg"></i>
+                                <div><span class="font-medium block">Very negative</span><span class="text-xs text-gray-500">Strongly opposed or distrustful of OER</span></div>
+                            </div>
+                        </label>
+                    </div>
+                    <textarea name="q12_elaborate" class="w-full p-3 border-2 border-gray-200 rounded-lg textarea-field text-sm" rows="3" placeholder="Elaborate on your observations of student attitudes..." oninput="updateCharCount(this); updateProgress()"></textarea>
+                    <div class="char-counter">0 characters</div>
+                </div>
+
+                <div class="question-card bg-white rounded-lg p-4 mb-4 shadow-sm border border-gray-100" data-section="D">
+                    <h3 class="font-semibold text-gray-800 mb-3 flex items-center text-sm">
+                        <span class="bg-indigo-100 text-indigo-700 rounded-full w-6 h-6 flex items-center justify-center text-xs mr-2">13</span>
+                        What factors influence students' willingness or reluctance to use OER?
+                    </h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-2 text-xs mb-3">
+                        <label class="cursor-pointer option-hover p-2 rounded-lg border-2 border-gray-200 transition-all">
+                            <input type="checkbox" name="q13_factors" value="Cost savings" class="hidden checkbox-custom" onchange="updateProgress()">
+                            <div class="flex items-center"><i class="fas fa-dollar-sign mr-2 text-green-500"></i><span>Cost savings / free access</span></div>
+                        </label>
+                        <label class="cursor-pointer option-hover p-2 rounded-lg border-2 border-gray-200 transition-all">
+                            <input type="checkbox" name="q13_factors" value="Quality concerns" class="hidden checkbox-custom" onchange="updateProgress()">
+                            <div class="flex items-center"><i class="fas fa-exclamation-triangle mr-2 text-red-500"></i><span>Quality concerns</span></div>
+                        </label>
+                        <label class="cursor-pointer option-hover p-2 rounded-lg border-2 border-gray-200 transition-all">
+                            <input type="checkbox" name="q13_factors" value="Ease of access" class="hidden checkbox-custom" onchange="updateProgress()">
+                            <div class="flex items-center"><i class="fas fa-unlock mr-2 text-blue-500"></i><span>Ease of access</span></div>
+                        </label>
+                        <label class="cursor-pointer option-hover p-2 rounded-lg border-2 border-gray-200 transition-all">
+                            <input type="checkbox" name="q13_factors" value="Internet connectivity" class="hidden checkbox-custom" onchange="updateProgress()">
+                            <div class="flex items-center"><i class="fas fa-wifi mr-2 text-purple-500"></i><span>Internet connectivity issues</span></div>
+                        </label>
+                        <label class="cursor-pointer option-hover p-2 rounded-lg border-2 border-gray-200 transition-all">
+                            <input type="checkbox" name="q13_factors" value="Digital skills" class="hidden checkbox-custom" onchange="updateProgress()">
+                            <div class="flex items-center"><i class="fas fa-laptop mr-2 text-orange-500"></i><span>Digital skills / literacy</span></div>
+                        </label>
+                        <label class="cursor-pointer option-hover p-2 rounded-lg border-2 border-gray-200 transition-all">
+                            <input type="checkbox" name="q13_factors" value="Academic staff influence" class="hidden checkbox-custom" onchange="updateProgress()">
+                            <div class="flex items-center"><i class="fas fa-chalkboard-teacher mr-2 text-teal-500"></i><span>Academic staff influence</span></div>
+                        </label>
+                        <label class="cursor-pointer option-hover p-2 rounded-lg border-2 border-gray-200 transition-all">
+                            <input type="checkbox" name="q13_factors" value="Peer influence" class="hidden checkbox-custom" onchange="updateProgress()">
+                            <div class="flex items-center"><i class="fas fa-user-friends mr-2 text-indigo-500"></i><span>Peer influence</span></div>
+                        </label>
+                        <label class="cursor-pointer option-hover p-2 rounded-lg border-2 border-gray-200 transition-all">
+                            <input type="checkbox" name="q13_factors" value="Trust in OER" class="hidden checkbox-custom" onchange="updateProgress()">
+                            <div class="flex items-center"><i class="fas fa-shield-alt mr-2 text-gray-500"></i><span>Trust / credibility of OER</span></div>
+                        </label>
+                        <label class="cursor-pointer option-hover p-2 rounded-lg border-2 border-gray-200 transition-all md:col-span-2">
+                            <input type="checkbox" name="q13_factors" value="Others" class="hidden checkbox-custom" onchange="toggleSpecify(this, 'q13-specify')">
+                            <div class="flex items-center justify-between">
+                                <span class="flex items-center"><i class="fas fa-ellipsis-h mr-2 text-gray-500"></i><span>Others (Specify)</span></span>
+                                <input type="text" id="q13-specify" class="hidden ml-2 flex-1 p-1 border rounded" placeholder="Specify...">
+                            </div>
+                        </label>
+                    </div>
+                    <textarea name="q13_details" class="w-full p-3 border-2 border-gray-200 rounded-lg textarea-field text-sm" rows="3" placeholder="Provide detailed explanation of how these factors influence student behavior..." oninput="updateCharCount(this); updateProgress()"></textarea>
+                    <div class="char-counter">0 characters</div>
+                </div>
+            </div>
+
+            <!-- SECTION E: CHALLENGES FACED IN UTILIZING OER -->
+            <div class="glass-panel rounded-2xl shadow-xl p-6 mb-6 section-hidden" id="section-e">
+                <div class="flex items-center mb-4 pb-3 border-b-2 border-indigo-100">
+                    <div class="w-10 h-10 rounded-full bg-indigo-600 text-white flex items-center justify-center text-lg font-bold mr-3">E</div>
+                    <div>
+                        <h2 class="text-xl font-bold text-gray-800">CHALLENGES FACED IN UTILIZING OER</h2>
+                        <p class="text-gray-600 text-xs">Barriers at student, institutional, and technical levels</p>
+                    </div>
+                </div>
+
+                <div class="question-card bg-white rounded-lg p-4 mb-4 shadow-sm border border-gray-100" data-section="E">
+                    <h3 class="font-semibold text-gray-800 mb-3 flex items-center text-sm">
+                        <span class="bg-indigo-100 text-indigo-700 rounded-full w-6 h-6 flex items-center justify-center text-xs mr-2">14</span>
+                        What challenges do distance students face when accessing and utilizing OER?
+                    </h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-2 text-xs mb-3">
+                        <label class="cursor-pointer option-hover p-2 rounded-lg border-2 border-gray-200 transition-all">
+                            <input type="checkbox" name="q14_challenges" value="Internet connectivity" class="hidden checkbox-custom" onchange="updateProgress()">
+                            <div class="flex items-center"><i class="fas fa-wifi mr-2 text-red-500"></i><span>Poor internet connectivity</span></div>
+                        </label>
+                        <label class="cursor-pointer option-hover p-2 rounded-lg border-2 border-gray-200 transition-all">
+                            <input type="checkbox" name="q14_challenges" value="Device access" class="hidden checkbox-custom" onchange="updateProgress()">
+                            <div class="flex items-center"><i class="fas fa-mobile-alt mr-2 text-blue-500"></i><span>Limited access to devices</span></div>
+                        </label>
+                        <label class="cursor-pointer option-hover p-2 rounded-lg border-2 border-gray-200 transition-all">
+                            <input type="checkbox" name="q14_challenges" value="Digital skills" class="hidden checkbox-custom" onchange="updateProgress()">
+                            <div class="flex items-center"><i class="fas fa-laptop-code mr-2 text-purple-500"></i><span>Lack of digital skills</span></div>
+                        </label>
+                        <label class="cursor-pointer option-hover p-2 rounded-lg border-2 border-gray-200 transition-all">
+                            <input type="checkbox" name="q14_challenges" value="Information overload" class="hidden checkbox-custom" onchange="updateProgress()">
+                            <div class="flex items-center"><i class="fas fa-database mr-2 text-orange-500"></i><span>Information overload</span></div>
+                        </label>
+                        <label class="cursor-pointer option-hover p-2 rounded-lg border-2 border-gray-200 transition-all">
+                            <input type="checkbox" name="q14_challenges" value="Language barrier" class="hidden checkbox-custom" onchange="updateProgress()">
+                            <div class="flex items-center"><i class="fas fa-language mr-2 text-green-500"></i><span>Language barrier</span></div>
+                        </label>
+                        <label class="cursor-pointer option-hover p-2 rounded-lg border-2 border-gray-200 transition-all">
+                            <input type="checkbox" name="q14_challenges" value="Time constraints" class="hidden checkbox-custom" onchange="updateProgress()">
+                            <div class="flex items-center"><i class="fas fa-clock mr-2 text-yellow-500"></i><span>Time constraints</span></div>
+                        </label>
+                        <label class="cursor-pointer option-hover p-2 rounded-lg border-2 border-gray-200 transition-all">
+                            <input type="checkbox" name="q14_challenges" value="Relevance" class="hidden checkbox-custom" onchange="updateProgress()">
+                            <div class="flex items-center"><i class="fas fa-bullseye mr-2 text-teal-500"></i><span>Lack of locally relevant content</span></div>
+                        </label>
+                        <label class="cursor-pointer option-hover p-2 rounded-lg border-2 border-gray-200 transition-all">
+                            <input type="checkbox" name="q14_challenges" value="Quality concerns" class="hidden checkbox-custom" onchange="updateProgress()">
+                            <div class="flex items-center"><i class="fas fa-question-circle mr-2 text-gray-500"></i><span>Quality / credibility concerns</span></div>
+                        </label>
+                        <label class="cursor-pointer option-hover p-2 rounded-lg border-2 border-gray-200 transition-all md:col-span-2">
+                            <input type="checkbox" name="q14_challenges" value="Others" class="hidden checkbox-custom" onchange="toggleSpecify(this, 'q14-specify')">
+                            <div class="flex items-center justify-between">
+                                <span class="flex items-center"><i class="fas fa-ellipsis-h mr-2 text-gray-500"></i><span>Others (Specify)</span></span>
+                                <input type="text" id="q14-specify" class="hidden ml-2 flex-1 p-1 border rounded" placeholder="Specify...">
+                            </div>
+                        </label>
+                    </div>
+                    <textarea name="q14_details" class="w-full p-3 border-2 border-gray-200 rounded-lg textarea-field text-sm" rows="3" placeholder="Elaborate on the most significant challenges and their impact on students..." oninput="updateCharCount(this); updateProgress()"></textarea>
+                    <div class="char-counter">0 characters</div>
+                </div>
+
+                <div class="question-card bg-white rounded-lg p-4 mb-4 shadow-sm border border-gray-100" data-section="E">
+                    <h3 class="font-semibold text-gray-800 mb-3 flex items-center text-sm">
+                        <span class="bg-indigo-100 text-indigo-700 rounded-full w-6 h-6 flex items-center justify-center text-xs mr-2">15</span>
+                        How do issues such as internet connectivity, access to digital devices, and digital skills affect students' ability to use OER?
+                    </h3>
+                    <div class="overflow-x-auto mb-3">
+                        <table class="w-full text-xs border-collapse">
+                            <thead>
+                                <tr class="bg-gray-50">
+                                    <th class="p-2 text-left border border-gray-200 font-semibold">Issue</th>
+                                    <th class="p-2 text-center border border-gray-200 w-20">Major barrier</th>
+                                    <th class="p-2 text-center border border-gray-200 w-20">Moderate barrier</th>
+                                    <th class="p-2 text-center border border-gray-200 w-20">Minor barrier</th>
+                                    <th class="p-2 text-center border border-gray-200 w-20">Not a barrier</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="hover:bg-gray-50">
+                                    <td class="p-2 border border-gray-200 font-medium">Internet connectivity</td>
+                                    <td class="p-2 border border-gray-200 text-center"><input type="radio" name="impact_internet" value="Major" class="w-4 h-4 text-indigo-600" onchange="updateProgress()"></td>
+                                    <td class="p-2 border border-gray-200 text-center"><input type="radio" name="impact_internet" value="Moderate" class="w-4 h-4 text-indigo-600" onchange="updateProgress()"></td>
+                                    <td class="p-2 border border-gray-200 text-center"><input type="radio" name="impact_internet" value="Minor" class="w-4 h-4 text-indigo-600" onchange="updateProgress()"></td>
+                                    <td class="p-2 border border-gray-200 text-center"><input type="radio" name="impact_internet" value="None" class="w-4 h-4 text-indigo-600" onchange="updateProgress()"></td>
+                                </tr>
+                                <tr class="hover:bg-gray-50">
+                                    <td class="p-2 border border-gray-200 font-medium">Access to digital devices</td>
+                                    <td class="p-2 border border-gray-200 text-center"><input type="radio" name="impact_devices" value="Major" class="w-4 h-4 text-indigo-600" onchange="updateProgress()"></td>
+                                    <td class="p-2 border border-gray-200 text-center"><input type="radio" name="impact_devices" value="Moderate" class="w-4 h-4 text-indigo-600" onchange="updateProgress()"></td>
+                                    <td class="p-2 border border-gray-200 text-center"><input type="radio" name="impact_devices" value="Minor" class="w-4 h-4 text-indigo-600" onchange="updateProgress()"></td>
+                                    <td class="p-2 border border-gray-200 text-center"><input type="radio" name="impact_devices" value="None" class="w-4 h-4 text-indigo-600" onchange="updateProgress()"></td>
+                                </tr>
+                                <tr class="hover:bg-gray-50">
+                                    <td class="p-2 border border-gray-200 font-medium">Digital skills</td>
+                                    <td class="p-2 border border-gray-200 text-center"><input type="radio" name="impact_skills" value="Major" class="w-4 h-4 text-indigo-600" onchange="updateProgress()"></td>
+                                    <td class="p-2 border border-gray-200 text-center"><input type="radio" name="impact_skills" value="Moderate" class="w-4 h-4 text-indigo-600" onchange="updateProgress()"></td>
+                                    <td class="p-2 border border-gray-200 text-center"><input type="radio" name="impact_skills" value="Minor" class="w-4 h-4 text-indigo-600" onchange="updateProgress()"></td>
+                                    <td class="p-2 border border-gray-200 text-center"><input type="radio" name="impact_skills" value="None" class="w-4 h-4 text-indigo-600" onchange="updateProgress()"></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <textarea name="q15_details" class="w-full p-3 border-2 border-gray-200 rounded-lg textarea-field text-sm" rows="3" placeholder="Provide specific examples or observations of how these issues manifest in practice..." oninput="updateCharCount(this); updateProgress()"></textarea>
+                    <div class="char-counter">0 characters</div>
+                </div>
+
+                <div class="question-card bg-white rounded-lg p-4 mb-4 shadow-sm border border-gray-100" data-section="E">
+                    <h3 class="font-semibold text-gray-800 mb-3 flex items-center text-sm">
+                        <span class="bg-indigo-100 text-indigo-700 rounded-full w-6 h-6 flex items-center justify-center text-xs mr-2">16</span>
+                        What institutional or technical challenges affect the effective provision and utilization of OER?
+                    </h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-2 text-xs mb-3">
+                        <label class="cursor-pointer option-hover p-2 rounded-lg border-2 border-gray-200 transition-all">
+                            <input type="checkbox" name="q16_institutional" value="Lack of policy" class="hidden checkbox-custom" onchange="updateProgress()">
+                            <div class="flex items-center"><i class="fas fa-file-excel mr-2 text-red-500"></i><span>Lack of OER policy</span></div>
+                        </label>
+                        <label class="cursor-pointer option-hover p-2 rounded-lg border-2 border-gray-200 transition-all">
+                            <input type="checkbox" name="q16_institutional" value="Limited funding" class="hidden checkbox-custom" onchange="updateProgress()">
+                            <div class="flex items-center"><i class="fas fa-coins mr-2 text-yellow-500"></i><span>Limited funding / budget</span></div>
+                        </label>
+                        <label class="cursor-pointer option-hover p-2 rounded-lg border-2 border-gray-200 transition-all">
+                            <input type="checkbox" name="q16_institutional" value="Infrastructure" class="hidden checkbox-custom" onchange="updateProgress()">
+                            <div class="flex items-center"><i class="fas fa-server mr-2 text-blue-500"></i><span>Inadequate IT infrastructure</span></div>
+                        </label>
+                        <label class="cursor-pointer option-hover p-2 rounded-lg border-2 border-gray-200 transition-all">
+                            <input type="checkbox" name="q16_institutional" value="Staff capacity" class="hidden checkbox-custom" onchange="updateProgress()">
+                            <div class="flex items-center"><i class="fas fa-user-tie mr-2 text-purple-500"></i><span>Staff capacity / training gaps</span></div>
+                        </label>
+                        <label class="cursor-pointer option-hover p-2 rounded-lg border-2 border-gray-200 transition-all">
+                            <input type="checkbox" name="q16_institutional" value="Platform limitations" class="hidden checkbox-custom" onchange="updateProgress()">
+                            <div class="flex items-center"><i class="fas fa-desktop mr-2 text-orange-500"></i><span>Platform / LMS limitations</span></div>
+                        </label>
+                        <label class="cursor-pointer option-hover p-2 rounded-lg border-2 border-gray-200 transition-all">
+                            <input type="checkbox" name="q16_institutional" value="Copyright complexity" class="hidden checkbox-custom" onchange="updateProgress()">
+                            <div class="flex items-center"><i class="fas fa-copyright mr-2 text-gray-500"></i><span>Copyright / licensing complexity</span></div>
+                        </label>
+                        <label class="cursor-pointer option-hover p-2 rounded-lg border-2 border-gray-200 transition-all">
+                            <input type="checkbox" name="q16_institutional" value="Content curation" class="hidden checkbox-custom" onchange="updateProgress()">
+                            <div class="flex items-center"><i class="fas fa-tasks mr-2 text-teal-500"></i><span>Content curation challenges</span></div>
+                        </label>
+                        <label class="cursor-pointer option-hover p-2 rounded-lg border-2 border-gray-200 transition-all">
+                            <input type="checkbox" name="q16_institutional" value="Integration with curriculum" class="hidden checkbox-custom" onchange="updateProgress()">
+                            <div class="flex items-center"><i class="fas fa-book mr-2 text-indigo-500"></i><span>Integration with curriculum</span></div>
+                        </label>
+                        <label class="cursor-pointer option-hover p-2 rounded-lg border-2 border-gray-200 transition-all md:col-span-2">
+                            <input type="checkbox" name="q16_institutional" value="Others" class="hidden checkbox-custom" onchange="toggleSpecify(this, 'q16-specify')">
+                            <div class="flex items-center justify-between">
+                                <span class="flex items-center"><i class="fas fa-ellipsis-h mr-2 text-gray-500"></i><span>Others (Specify)</span></span>
+                                <input type="text" id="q16-specify" class="hidden ml-2 flex-1 p-1 border rounded" placeholder="Specify...">
+                            </div>
+                        </label>
+                    </div>
+                    <textarea name="q16_details" class="w-full p-3 border-2 border-gray-200 rounded-lg textarea-field text-sm" rows="3" placeholder="Elaborate on institutional and technical barriers and their impact on OER provision..." oninput="updateCharCount(this); updateProgress()"></textarea>
+                    <div class="char-counter">0 characters</div>
+                </div>
+
+                <div class="question-card bg-white rounded-lg p-4 mb-4 shadow-sm border border-gray-100" data-section="E">
+                    <h3 class="font-semibold text-gray-800 mb-3 flex items-center text-sm">
+                        <span class="bg-indigo-100 text-indigo-700 rounded-full w-6 h-6 flex items-center justify-center text-xs mr-2">17</span>
+                        What support does the library provide to help students overcome these challenges?
+                    </h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-2 text-xs mb-3">
+                        <label class="cursor-pointer option-hover p-2 rounded-lg border-2 border-gray-200 transition-all">
+                            <input type="checkbox" name="q17_support" value="Training workshops" class="hidden checkbox-custom" onchange="updateProgress()">
+                            <div class="flex items-center"><i class="fas fa-chalkboard-teacher mr-2 text-green-500"></i><span>Training workshops</span></div>
+                        </label>
+                        <label class="cursor-pointer option-hover p-2 rounded-lg border-2 border-gray-200 transition-all">
+                            <input type="checkbox" name="q17_support" value="Online tutorials" class="hidden checkbox-custom" onchange="updateProgress()">
+                            <div class="flex items-center"><i class="fas fa-laptop mr-2 text-blue-500"></i><span>Online tutorials / guides</span></div>
+                        </label>
+                        <label class="cursor-pointer option-hover p-2 rounded-lg border-2 border-gray-200 transition-all">
+                            <input type="checkbox" name="q17_support" value="Help desk" class="hidden checkbox-custom" onchange="updateProgress()">
+                            <div class="flex items-center"><i class="fas fa-headset mr-2 text-purple-500"></i><span>Help desk / reference service</span></div>
+                        </label>
+                        <label class="cursor-pointer option-hover p-2 rounded-lg border-2 border-gray-200 transition-all">
+                            <input type="checkbox" name="q17_support" value="Offline access" class="hidden checkbox-custom" onchange="updateProgress()">
+                            <div class="flex items-center"><i class="fas fa-download mr-2 text-orange-500"></i><span>Offline / downloadable content</span></div>
+                        </label>
+                        <label class="cursor-pointer option-hover p-2 rounded-lg border-2 border-gray-200 transition-all">
+                            <input type="checkbox" name="q17_support" value="Mobile-friendly platforms" class="hidden checkbox-custom" onchange="updateProgress()">
+                            <div class="flex items-center"><i class="fas fa-mobile-alt mr-2 text-teal-500"></i><span>Mobile-friendly platforms</span></div>
+                        </label>
+                        <label class="cursor-pointer option-hover p-2 rounded-lg border-2 border-gray-200 transition-all">
+                            <input type="checkbox" name="q17_support" value="Peer support" class="hidden checkbox-custom" onchange="updateProgress()">
+                            <div class="flex items-center"><i class="fas fa-users mr-2 text-indigo-500"></i><span>Peer support / mentoring</span></div>
+                        </label>
+                        <label class="cursor-pointer option-hover p-2 rounded-lg border-2 border-gray-200 transition-all">
+                            <input type="checkbox" name="q17_support" value="No specific support" class="hidden checkbox-custom" onchange="updateProgress()">
+                            <div class="flex items-center"><i class="fas fa-ban mr-2 text-red-500"></i><span>No specific support provided</span></div>
+                        </label>
+                        <label class="cursor-pointer option-hover p-2 rounded-lg border-2 border-gray-200 transition-all md:col-span-2">
+                            <input type="checkbox" name="q17_support" value="Others" class="hidden checkbox-custom" onchange="toggleSpecify(this, 'q17-specify')">
+                            <div class="flex items-center justify-between">
+                                <span class="flex items-center"><i class="fas fa-ellipsis-h mr-2 text-gray-500"></i><span>Others (Specify)</span></span>
+                                <input type="text" id="q17-specify" class="hidden ml-2 flex-1 p-1 border rounded" placeholder="Specify...">
+                            </div>
+                        </label>
+                    </div>
+                    <textarea name="q17_details" class="w-full p-3 border-2 border-gray-200 rounded-lg textarea-field text-sm" rows="3" placeholder="Describe the effectiveness of these support mechanisms and any gaps..." oninput="updateCharCount(this); updateProgress()"></textarea>
+                    <div class="char-counter">0 characters</div>
+                </div>
+            </div>
+
+            <!-- SECTION F: FRAMEWORK RECOMMENDATIONS -->
+            <div class="glass-panel rounded-2xl shadow-xl p-6 mb-6 section-hidden" id="section-f">
+                <div class="flex items-center mb-4 pb-3 border-b-2 border-indigo-100">
+                    <div class="w-10 h-10 rounded-full bg-indigo-600 text-white flex items-center justify-center text-lg font-bold mr-3">F</div>
+                    <div>
+                        <h2 class="text-xl font-bold text-gray-800">FRAMEWORK RECOMMENDATIONS</h2>
+                        <p class="text-gray-600 text-xs">Policies, strategies, and institutional framework components</p>
+                    </div>
+                </div>
+
+                <div class="question-card bg-white rounded-lg p-4 mb-4 shadow-sm border border-gray-100" data-section="F">
+                    <h3 class="font-semibold text-gray-800 mb-3 flex items-center text-sm">
+                        <span class="bg-indigo-100 text-indigo-700 rounded-full w-6 h-6 flex items-center justify-center text-xs mr-2">18</span>
+                        Does OUT have policies, guidelines, or institutional strategies that support the development, management, and utilization of OER? If yes, how effective are they?
+                    </h3>
+                    <div class="space-y-2 text-sm mb-3">
+                        <label class="cursor-pointer option-hover p-3 rounded-lg border-2 border-gray-200 transition-all block">
+                            <input type="radio" name="q18_policies" value="Yes, very effective" class="hidden radio-custom" onchange="updateProgress()">
+                            <div class="flex items-center"><i class="fas fa-check-double text-green-500 mr-3 text-lg"></i>
+                                <div><span class="font-medium block">Yes, very effective</span><span class="text-xs text-gray-500">Policies are comprehensive and well-implemented</span></div>
+                            </div>
+                        </label>
+                        <label class="cursor-pointer option-hover p-3 rounded-lg border-2 border-gray-200 transition-all block">
+                            <input type="radio" name="q18_policies" value="Yes, somewhat effective" class="hidden radio-custom" onchange="updateProgress()">
+                            <div class="flex items-center"><i class="fas fa-check text-green-400 mr-3 text-lg"></i>
+                                <div><span class="font-medium block">Yes, somewhat effective</span><span class="text-xs text-gray-500">Policies exist but implementation is partial</span></div>
+                            </div>
+                        </label>
+                        <label class="cursor-pointer option-hover p-3 rounded-lg border-2 border-gray-200 transition-all block">
+                            <input type="radio" name="q18_policies" value="Yes, but not effective" class="hidden radio-custom" onchange="updateProgress()">
+                            <div class="flex items-center"><i class="fas fa-exclamation-circle text-yellow-500 mr-3 text-lg"></i>
+                                <div><span class="font-medium block">Yes, but not effective</span><span class="text-xs text-gray-500">Policies exist but are not well implemented</span></div>
+                            </div>
+                        </label>
+                        <label class="cursor-pointer option-hover p-3 rounded-lg border-2 border-gray-200 transition-all block">
+                            <input type="radio" name="q18_policies" value="No policies exist" class="hidden radio-custom" onchange="updateProgress()">
+                            <div class="flex items-center"><i class="fas fa-times-circle text-red-500 mr-3 text-lg"></i>
+                                <div><span class="font-medium block">No policies exist</span><span class="text-xs text-gray-500">There are no formal OER policies or guidelines</span></div>
+                            </div>
+                        </label>
+                        <label class="cursor-pointer option-hover p-3 rounded-lg border-2 border-gray-200 transition-all block">
+                            <input type="radio" name="q18_policies" value="Don't know" class="hidden radio-custom" onchange="updateProgress()">
+                            <div class="flex items-center"><i class="fas fa-question-circle text-gray-500 mr-3 text-lg"></i>
+                                <div><span class="font-medium block">Don't know</span><span class="text-xs text-gray-500">I am not aware of any existing policies</span></div>
+                            </div>
+                        </label>
+                    </div>
+                    <textarea name="q18_details" class="w-full p-3 border-2 border-gray-200 rounded-lg textarea-field text-sm" rows="4" placeholder="Describe the policies, their scope, and assess their effectiveness in practice..." oninput="updateCharCount(this); updateProgress()"></textarea>
+                    <div class="char-counter">0 characters</div>
+                </div>
+
+                <div class="question-card bg-white rounded-lg p-4 mb-4 shadow-sm border border-gray-100" data-section="F">
+                    <h3 class="font-semibold text-gray-800 mb-3 flex items-center text-sm">
+                        <span class="bg-indigo-100 text-indigo-700 rounded-full w-6 h-6 flex items-center justify-center text-xs mr-2">19</span>
+                        Based on your experience, what strategies do you think could improve the utilization of OER among distance students?
+                    </h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-2 text-xs mb-3">
+                        <label class="cursor-pointer option-hover p-2 rounded-lg border-2 border-gray-200 transition-all">
+                            <input type="checkbox" name="q19_strategies" value="Enhanced training" class="hidden checkbox-custom" onchange="updateProgress()">
+                            <div class="flex items-center"><i class="fas fa-graduation-cap mr-2 text-blue-500"></i><span>Enhanced training programs</span></div>
+                        </label>
+                        <label class="cursor-pointer option-hover p-2 rounded-lg border-2 border-gray-200 transition-all">
+                            <input type="checkbox" name="q19_strategies" value="Better infrastructure" class="hidden checkbox-custom" onchange="updateProgress()">
+                            <div class="flex items-center"><i class="fas fa-server mr-2 text-green-500"></i><span>Better IT infrastructure</span></div>
+                        </label>
+                        <label class="cursor-pointer option-hover p-2 rounded-lg border-2 border-gray-200 transition-all">
+                            <input type="checkbox" name="q19_strategies" value="Mobile optimization" class="hidden checkbox-custom" onchange="updateProgress()">
+                            <div class="flex items-center"><i class="fas fa-mobile-alt mr-2 text-purple-500"></i><span>Mobile-optimized platforms</span></div>
+                        </label>
+                        <label class="cursor-pointer option-hover p-2 rounded-lg border-2 border-gray-200 transition-all">
+                            <input type="checkbox" name="q19_strategies" value="Academic staff engagement" class="hidden checkbox-custom" onchange="updateProgress()">
+                            <div class="flex items-center"><i class="fas fa-chalkboard-teacher mr-2 text-orange-500"></i><span>Academic staff engagement</span></div>
+                        </label>
+                        <label class="cursor-pointer option-hover p-2 rounded-lg border-2 border-gray-200 transition-all">
+                            <input type="checkbox" name="q19_strategies" value="Curriculum integration" class="hidden checkbox-custom" onchange="updateProgress()">
+                            <div class="flex items-center"><i class="fas fa-book mr-2 text-teal-500"></i><span>Curriculum integration</span></div>
+                        </label>
+                        <label class="cursor-pointer option-hover p-2 rounded-lg border-2 border-gray-200 transition-all">
+                            <input type="checkbox" name="q19_strategies" value="Awareness campaigns" class="hidden checkbox-custom" onchange="updateProgress()">
+                            <div class="flex items-center"><i class="fas fa-bullhorn mr-2 text-red-500"></i><span>Awareness campaigns</span></div>
+                        </label>
+                        <label class="cursor-pointer option-hover p-2 rounded-lg border-2 border-gray-200 transition-all">
+                            <input type="checkbox" name="q19_strategies" value="Offline access" class="hidden checkbox-custom" onchange="updateProgress()">
+                            <div class="flex items-center"><i class="fas fa-download mr-2 text-indigo-500"></i><span>Offline access options</span></div>
+                        </label>
+                        <label class="cursor-pointer option-hover p-2 rounded-lg border-2 border-gray-200 transition-all">
+                            <input type="checkbox" name="q19_strategies" value="Quality assurance" class="hidden checkbox-custom" onchange="updateProgress()">
+                            <div class="flex items-center"><i class="fas fa-award mr-2 text-yellow-500"></i><span>Quality assurance mechanisms</span></div>
+                        </label>
+                        <label class="cursor-pointer option-hover p-2 rounded-lg border-2 border-gray-200 transition-all md:col-span-2">
+                            <input type="checkbox" name="q19_strategies" value="Others" class="hidden checkbox-custom" onchange="toggleSpecify(this, 'q19-specify')">
+                            <div class="flex items-center justify-between">
+                                <span class="flex items-center"><i class="fas fa-ellipsis-h mr-2 text-gray-500"></i><span>Others (Specify)</span></span>
+                                <input type="text" id="q19-specify" class="hidden ml-2 flex-1 p-1 border rounded" placeholder="Specify...">
+                            </div>
+                        </label>
+                    </div>
+                    <textarea name="q19_details" class="w-full p-3 border-2 border-gray-200 rounded-lg textarea-field text-sm" rows="3" placeholder="Elaborate on your recommended strategies and why you believe they would be effective..." oninput="updateCharCount(this); updateProgress()"></textarea>
+                    <div class="char-counter">0 characters</div>
+                </div>
+
+                <div class="question-card bg-white rounded-lg p-4 mb-4 shadow-sm border border-gray-100" data-section="F">
+                    <h3 class="font-semibold text-gray-800 mb-3 flex items-center text-sm">
+                        <span class="bg-indigo-100 text-indigo-700 rounded-full w-6 h-6 flex items-center justify-center text-xs mr-2">20</span>
+                        What roles should the library, IEMT, academic departments, and university management play in strengthening OER utilization?
+                    </h3>
+                    <div class="grid grid-cols-1 gap-3 text-sm mb-3">
+                        <div class="bg-gray-50 p-3 rounded-lg">
+                            <label class="block text-xs font-semibold text-gray-700 mb-1"><i class="fas fa-book mr-1 text-indigo-500"></i> Library:</label>
+                            <textarea name="q20_library_role" class="w-full p-2 border border-gray-300 rounded text-xs" rows="2" placeholder="Describe the library's role..." oninput="updateCharCount(this); updateProgress()"></textarea>
+                        </div>
+                        <div class="bg-gray-50 p-3 rounded-lg">
+                            <label class="block text-xs font-semibold text-gray-700 mb-1"><i class="fas fa-laptop-code mr-1 text-blue-500"></i> IEMT (Institute of Educational Technology):</label>
+                            <textarea name="q20_iemt_role" class="w-full p-2 border border-gray-300 rounded text-xs" rows="2" placeholder="Describe IEMT's role..." oninput="updateCharCount(this); updateProgress()"></textarea>
+                        </div>
+                        <div class="bg-gray-50 p-3 rounded-lg">
+                            <label class="block text-xs font-semibold text-gray-700 mb-1"><i class="fas fa-university mr-1 text-green-500"></i> Academic Departments:</label>
+                            <textarea name="q20_dept_role" class="w-full p-2 border border-gray-300 rounded text-xs" rows="2" placeholder="Describe academic departments' role..." oninput="updateCharCount(this); updateProgress()"></textarea>
+                        </div>
+                        <div class="bg-gray-50 p-3 rounded-lg">
+                            <label class="block text-xs font-semibold text-gray-700 mb-1"><i class="fas fa-building mr-1 text-purple-500"></i> University Management:</label>
+                            <textarea name="q20_mgmt_role" class="w-full p-2 border border-gray-300 rounded text-xs" rows="2" placeholder="Describe university management's role..." oninput="updateCharCount(this); updateProgress()"></textarea>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="question-card bg-white rounded-lg p-4 mb-4 shadow-sm border border-gray-100" data-section="F">
+                    <h3 class="font-semibold text-gray-800 mb-3 flex items-center text-sm">
+                        <span class="bg-indigo-100 text-indigo-700 rounded-full w-6 h-6 flex items-center justify-center text-xs mr-2">21</span>
+                        What key components should be included in a framework for improving OER utilization to support teaching and learning for distance students at OUT?
+                    </h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-2 text-xs mb-3">
+                        <label class="cursor-pointer option-hover p-2 rounded-lg border-2 border-gray-200 transition-all">
+                            <input type="checkbox" name="q21_components" value="Policy development" class="hidden checkbox-custom" onchange="updateProgress()">
+                            <div class="flex items-center"><i class="fas fa-file-alt mr-2 text-blue-500"></i><span>Policy development</span></div>
+                        </label>
+                        <label class="cursor-pointer option-hover p-2 rounded-lg border-2 border-gray-200 transition-all">
+                            <input type="checkbox" name="q21_components" value="Infrastructure" class="hidden checkbox-custom" onchange="updateProgress()">
+                            <div class="flex items-center"><i class="fas fa-server mr-2 text-green-500"></i><span>Infrastructure development</span></div>
+                        </label>
+                        <label class="cursor-pointer option-hover p-2 rounded-lg border-2 border-gray-200 transition-all">
+                            <input type="checkbox" name="q21_components" value="Training programs" class="hidden checkbox-custom" onchange="updateProgress()">
+                            <div class="flex items-center"><i class="fas fa-user-graduate mr-2 text-purple-500"></i><span>Training programs</span></div>
+                        </label>
+                        <label class="cursor-pointer option-hover p-2 rounded-lg border-2 border-gray-200 transition-all">
+                            <input type="checkbox" name="q21_components" value="Quality assurance" class="hidden checkbox-custom" onchange="updateProgress()">
+                            <div class="flex items-center"><i class="fas fa-check-double mr-2 text-orange-500"></i><span>Quality assurance</span></div>
+                        </label>
+                        <label class="cursor-pointer option-hover p-2 rounded-lg border-2 border-gray-200 transition-all">
+                            <input type="checkbox" name="q21_components" value="Content curation" class="hidden checkbox-custom" onchange="updateProgress()">
+                            <div class="flex items-center"><i class="fas fa-folder-open mr-2 text-teal-500"></i><span>Content curation</span></div>
+                        </label>
+                        <label class="cursor-pointer option-hover p-2 rounded-lg border-2 border-gray-200 transition-all">
+                            <input type="checkbox" name="q21_components" value="Monitoring evaluation" class="hidden checkbox-custom" onchange="updateProgress()">
+                            <div class="flex items-center"><i class="fas fa-chart-bar mr-2 text-red-500"></i><span>Monitoring &amp; evaluation</span></div>
+                        </label>
+                        <label class="cursor-pointer option-hover p-2 rounded-lg border-2 border-gray-200 transition-all">
+                            <input type="checkbox" name="q21_components" value="Partnerships" class="hidden checkbox-custom" onchange="updateProgress()">
+                            <div class="flex items-center"><i class="fas fa-handshake mr-2 text-indigo-500"></i><span>Partnerships &amp; collaboration</span></div>
+                        </label>
+                        <label class="cursor-pointer option-hover p-2 rounded-lg border-2 border-gray-200 transition-all">
+                            <input type="checkbox" name="q21_components" value="Sustainability plan" class="hidden checkbox-custom" onchange="updateProgress()">
+                            <div class="flex items-center"><i class="fas fa-leaf mr-2 text-green-600"></i><span>Sustainability plan</span></div>
+                        </label>
+                        <label class="cursor-pointer option-hover p-2 rounded-lg border-2 border-gray-200 transition-all md:col-span-2">
+                            <input type="checkbox" name="q21_components" value="Others" class="hidden checkbox-custom" onchange="toggleSpecify(this, 'q21-specify')">
+                            <div class="flex items-center justify-between">
+                                <span class="flex items-center"><i class="fas fa-ellipsis-h mr-2 text-gray-500"></i><span>Others (Specify)</span></span>
+                                <input type="text" id="q21-specify" class="hidden ml-2 flex-1 p-1 border rounded" placeholder="Specify...">
+                            </div>
+                        </label>
+                    </div>
+                    <textarea name="q21_details" class="w-full p-3 border-2 border-gray-200 rounded-lg textarea-field text-sm" rows="4" placeholder="Describe how these components should be structured and integrated into the institutional framework..." oninput="updateCharCount(this); updateProgress()"></textarea>
+                    <div class="char-counter">0 characters</div>
+                </div>
+
+                <div class="question-card bg-white rounded-lg p-4 mb-4 shadow-sm border border-gray-100" data-section="F">
+                    <h3 class="font-semibold text-gray-800 mb-3 flex items-center text-sm">
+                        <span class="bg-indigo-100 text-indigo-700 rounded-full w-6 h-6 flex items-center justify-center text-xs mr-2">22</span>
+                        What measures are needed to ensure the sustainability and continuous improvement of OER initiatives at OUT?
+                    </h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-2 text-xs mb-3">
+                        <label class="cursor-pointer option-hover p-2 rounded-lg border-2 border-gray-200 transition-all">
+                            <input type="checkbox" name="q22_measures" value="Dedicated funding" class="hidden checkbox-custom" onchange="updateProgress()">
+                            <div class="flex items-center"><i class="fas fa-dollar-sign mr-2 text-green-500"></i><span>Dedicated funding / budget</span></div>
+                        </label>
+                        <label class="cursor-pointer option-hover p-2 rounded-lg border-2 border-gray-200 transition-all">
+                            <input type="checkbox" name="q22_measures" value="Staff development" class="hidden checkbox-custom" onchange="updateProgress()">
+                            <div class="flex items-center"><i class="fas fa-user-tie mr-2 text-blue-500"></i><span>Staff development programs</span></div>
+                        </label>
+                        <label class="cursor-pointer option-hover p-2 rounded-lg border-2 border-gray-200 transition-all">
+                            <input type="checkbox" name="q22_measures" value="Technology updates" class="hidden checkbox-custom" onchange="updateProgress()">
+                            <div class="flex items-center"><i class="fas fa-sync mr-2 text-purple-500"></i><span>Regular technology updates</span></div>
+                        </label>
+                        <label class="cursor-pointer option-hover p-2 rounded-lg border-2 border-gray-200 transition-all">
+                            <input type="checkbox" name="q22_measures" value="Community of practice" class="hidden checkbox-custom" onchange="updateProgress()">
+                            <div class="flex items-center"><i class="fas fa-users mr-2 text-orange-500"></i><span>Community of practice</span></div>
+                        </label>
+                        <label class="cursor-pointer option-hover p-2 rounded-lg border-2 border-gray-200 transition-all">
+                            <input type="checkbox" name="q22_measures" value="Research &amp; innovation" class="hidden checkbox-custom" onchange="updateProgress()">
+                            <div class="flex items-center"><i class="fas fa-flask mr-2 text-teal-500"></i><span>Research &amp; innovation</span></div>
+                        </label>
+                        <label class="cursor-pointer option-hover p-2 rounded-lg border-2 border-gray-200 transition-all">
+                            <input type="checkbox" name="q22_measures" value="Feedback mechanisms" class="hidden checkbox-custom" onchange="updateProgress()">
+                            <div class="flex items-center"><i class="fas fa-comments mr-2 text-indigo-500"></i><span>Feedback mechanisms</span></div>
+                        </label>
+                        <label class="cursor-pointer option-hover p-2 rounded-lg border-2 border-gray-200 transition-all md:col-span-2">
+                            <input type="checkbox" name="q22_measures" value="Others" class="hidden checkbox-custom" onchange="toggleSpecify(this, 'q22-specify')">
+                            <div class="flex items-center justify-between">
+                                <span class="flex items-center"><i class="fas fa-ellipsis-h mr-2 text-gray-500"></i><span>Others (Specify)</span></span>
+                                <input type="text" id="q22-specify" class="hidden ml-2 flex-1 p-1 border rounded" placeholder="Specify...">
+                            </div>
+                        </label>
+                    </div>
+                    <textarea name="q22_details" class="w-full p-3 border-2 border-gray-200 rounded-lg textarea-field text-sm" rows="4" placeholder="Describe specific measures and how they would ensure long-term sustainability and continuous improvement..." oninput="updateCharCount(this); updateProgress()"></textarea>
+                    <div class="char-counter">0 characters</div>
+                </div>
+
+                <!-- Thank You -->
+                <div class="text-center p-6 bg-indigo-50 rounded-lg">
+                    <h4 class="text-lg font-bold text-indigo-800 mb-2">Thank You Very Much for Your Cooperation!</h4>
+                    <p class="text-sm text-indigo-600">Your participation is greatly appreciated and will contribute significantly to this research.</p>
+                </div>
+            </div>
+
+            <!-- Submit Section -->
+            <div class="glass-panel rounded-2xl shadow-xl p-6 text-center section-hidden" id="submit-section">
+                <div class="mb-4">
+                    <i class="fas fa-check-circle text-5xl text-green-500 mb-3"></i>
+                    <h2 class="text-xl font-bold text-gray-800 mb-2">Ready to Submit!</h2>
+                    <p class="text-gray-600 text-sm">You have reached the end of the interview guide.</p>
+                </div>
+
+                <div class="bg-blue-50 border border-blue-200 rounded-lg p-3 mb-4 text-left max-w-xl mx-auto text-xs">
+                    <h4 class="font-semibold text-blue-800 mb-2">Before submitting:</h4>
+                    <ul class="text-blue-700 space-y-1">
+                        <li><i class="fas fa-check mr-1"></i>Review your answers</li>
+                        <li><i class="fas fa-check mr-1"></i>Ensure all required fields are completed</li>
+                        <li><i class="fas fa-check mr-1"></i>Your responses will be kept confidential</li>
+                    </ul>
+                </div>
+
+                <div class="flex gap-3 justify-center">
+                    <button onclick="exportResponses()" class="bg-gray-600 text-white px-6 py-3 rounded-full font-bold text-sm hover:bg-gray-700 transition-all shadow-lg">
+                        <i class="fas fa-download mr-2"></i>Export Responses
+                    </button>
+                    <button onclick="submitForm()" class="bg-indigo-600 text-white px-8 py-3 rounded-full font-bold text-base hover:bg-indigo-700 transition-all transform hover:scale-105 shadow-lg">
+                        Submit Interview
+                    </button>
+                </div>
+
+                <p class="mt-3 text-xs text-gray-500">
+                    <i class="fas fa-lock mr-1"></i> Secure submission &bull; Data encrypted &bull; Academic use only
+                </p>
+            </div>
+
+        </form>
+
+        <!-- Thank You Message (Hidden initially) -->
+        <div id="thank-you" class="hidden glass-panel rounded-2xl shadow-2xl p-8 text-center max-w-2xl mx-auto">
+            <div class="mb-4">
+                <div class="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-3">
+                    <i class="fas fa-check text-4xl text-green-500"></i>
+                </div>
+                <h2 class="text-2xl font-bold text-gray-800 mb-2">Submission Successful!</h2>
+                <p class="text-gray-600 text-sm mb-4">
+                    Thank you for participating in this research study. Your responses have been recorded successfully.
+                </p>
+                <div class="bg-gray-50 rounded-lg p-4 text-left mb-4">
+                    <p class="text-xs text-gray-600 mb-1"><strong>Reference ID:</strong> <span id="ref-id" class="font-mono text-indigo-600"></span></p>
+                    <p class="text-xs text-gray-600">Please save this reference number for your records.</p>
+                </div>
+                <button onclick="location.reload()" class="bg-indigo-600 text-white px-6 py-2 rounded-full font-semibold hover:bg-indigo-700 transition-all text-sm">
+                    Submit Another Response
+                </button>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        // === SINGLE SUBMISSION LOCK ===
+        // Prevents multiple submissions per browser session
+        const SUBMIT_KEY = 'oer_interview_submitted';
+        const SUBMIT_TIME_KEY = 'oer_interview_submit_time';
+
+        function checkAlreadySubmitted() {
+            if (sessionStorage.getItem(SUBMIT_KEY) === 'true') {
+                const submitTime = sessionStorage.getItem(SUBMIT_TIME_KEY);
+                showLockScreen(submitTime);
+                return true;
+            }
+            return false;
+        }
+
+        function markAsSubmitted() {
+            sessionStorage.setItem(SUBMIT_KEY, 'true');
+            sessionStorage.setItem(SUBMIT_TIME_KEY, new Date().toISOString());
+        }
+
+        function showLockScreen(submitTime) {
+            // Hide the entire form
+            const form = document.getElementById('interview-form');
+            if (form) form.style.display = 'none';
+            const submitSec = document.getElementById('submit-section');
+            if (submitSec) submitSec.style.display = 'none';
+
+            // Show lock message
+            const container = document.querySelector('.max-w-5xl');
+            if (container) {
+                const lockDiv = document.createElement('div');
+                lockDiv.id = 'session-lock';
+                lockDiv.className = 'glass-panel rounded-2xl shadow-2xl p-8 text-center max-w-2xl mx-auto mt-10';
+                lockDiv.innerHTML = `
+                    <div class="w-20 h-20 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-lock text-4xl text-red-500"></i>
+                    </div>
+                    <h2 class="text-2xl font-bold text-gray-800 mb-3">Interview Already Submitted</h2>
+                    <p class="text-gray-600 text-sm mb-2">You have already completed and submitted this interview.</p>
+                    <p class="text-gray-500 text-xs mb-4">Submitted on: ${submitTime ? new Date(submitTime).toLocaleString() : 'Unknown'}</p>
+                    <div class="bg-yellow-50 border border-yellow-200 rounded-lg p-3 mb-4 text-left">
+                        <p class="text-xs text-yellow-800"><i class="fas fa-info-circle mr-1"></i> <strong>Note:</strong> Only one submission is allowed per session. If you need to submit another interview response, please open this page in a new private/incognito browser window.</p>
+                    </div>
+                    <button onclick="location.reload()" class="bg-gray-600 text-white px-6 py-2 rounded-full font-semibold hover:bg-gray-700 transition-all text-sm mr-2">
+                        <i class="fas fa-redo mr-1"></i> Reload Page
+                    </button>
+                `;
+                container.appendChild(lockDiv);
+            }
+        }
+
+        // Check on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            checkAlreadySubmitted();
+        });
+        // === END SINGLE SUBMISSION LOCK ===
+
+        // Consent check
+        function checkConsent() {
+            // Check if already submitted before revealing sections
+            if (sessionStorage.getItem(SUBMIT_KEY) === 'true') {
+                return; // Don't unlock if already submitted
+            }
+            const consent = document.querySelector('input[name="consent"]:checked');
+            const sections = document.querySelectorAll('.section-hidden');
+
+            if (consent && consent.value === 'Yes') {
+                sections.forEach(section => {
+                    section.classList.remove('section-hidden');
+                    section.classList.add('fade-in');
+                });
+                document.getElementById('submit-section').classList.remove('section-hidden');
+                updateProgress();
+            } else {
+                sections.forEach(section => {
+                    section.classList.add('section-hidden');
+                    section.classList.remove('fade-in');
+                });
+                document.getElementById('submit-section').classList.add('section-hidden');
+            }
+        }
+
+        // Toggle specify fields
+        function toggleSpecify(checkbox, inputId) {
+            const input = document.getElementById(inputId);
+            if (checkbox.checked) {
+                input.classList.remove('hidden');
+                input.focus();
+            } else {
+                input.classList.add('hidden');
+            }
+        }
+
+        // Update character count
+        function updateCharCount(textarea) {
+            const counter = textarea.parentElement.querySelector('.char-counter');
+            if (counter) {
+                counter.textContent = textarea.value.length + ' characters';
+            }
+        }
+
+        // Update progress bar
+        function updateProgress() {
+            const form = document.getElementById('interview-form');
+            const allInputs = form.querySelectorAll('input[type="radio"], input[type="checkbox"], textarea, input[type="text"]');
+            let answered = 0;
+            let total = 22; // Total main questions
+
+            // Count answered radio groups
+            const radioGroups = new Set();
+            const answeredRadios = new Set();
+            form.querySelectorAll('input[type="radio"]:checked').forEach(r => {
+                answeredRadios.add(r.name);
+            });
+
+            // Count answered checkboxes (at least one per group)
+            const checkboxGroups = new Set();
+            const answeredCheckboxes = new Set();
+            form.querySelectorAll('input[type="checkbox"]:checked').forEach(c => {
+                answeredCheckboxes.add(c.name);
+            });
+
+            // Count textareas with content
+            const textareas = form.querySelectorAll('textarea');
+            let textareaCount = 0;
+            textareas.forEach(t => {
+                if (t.value.trim().length > 0) textareaCount++;
+            });
+
+            // Calculate progress based on main question groups
+            // Q1: textarea
+            // Q2: radio + optional textarea
+            // Q3: textarea
+            // Q4: checkbox + optional textarea
+            // Q5: textarea
+            // Q6: checkbox + optional textarea
+            // Q7: textarea
+            // Q8: textarea
+            // Q9: checkbox + optional textarea
+            // Q10: textarea
+            // Q11: textarea
+            // Q12: radio + optional textarea
+            // Q13: checkbox + optional textarea
+            // Q14: checkbox + optional textarea
+            // Q15: table radios + optional textarea
+            // Q16: checkbox + optional textarea
+            // Q17: checkbox + optional textarea
+            // Q18: radio + optional textarea
+            // Q19: checkbox + optional textarea
+            // Q20: 4 textareas
+            // Q21: checkbox + optional textarea
+            // Q22: checkbox + optional textarea
+
+            let progress = 0;
+
+            // Check each question
+            if (form.querySelector('textarea[name="q1_position"]')?.value.trim()) progress++;
+            if (form.querySelector('input[name="q2_awareness"]:checked')) progress++;
+            if (form.querySelector('textarea[name="q3_evidence"]')?.value.trim()) progress++;
+            if (form.querySelector('input[name="q4_strategies"]:checked')) progress++;
+            if (form.querySelector('textarea[name="q5_training"]')?.value.trim()) progress++;
+            if (form.querySelector('input[name="q6_types"]:checked')) progress++;
+            if (form.querySelector('textarea[name="q7_access"]')?.value.trim()) progress++;
+            if (form.querySelector('textarea[name="q8_frequent"]')?.value.trim()) progress++;
+            if (form.querySelector('input[name="q9_monitoring"]:checked')) progress++;
+            if (form.querySelector('textarea[name="q10_quality"]')?.value.trim()) progress++;
+            if (form.querySelector('textarea[name="q11_staff_role"]')?.value.trim()) progress++;
+            if (form.querySelector('input[name="q12_attitude"]:checked')) progress++;
+            if (form.querySelector('input[name="q13_factors"]:checked')) progress++;
+            if (form.querySelector('input[name="q14_challenges"]:checked')) progress++;
+            if (form.querySelector('input[name="impact_internet"]:checked')) progress++;
+            if (form.querySelector('input[name="q16_institutional"]:checked')) progress++;
+            if (form.querySelector('input[name="q17_support"]:checked')) progress++;
+            if (form.querySelector('input[name="q18_policies"]:checked')) progress++;
+            if (form.querySelector('input[name="q19_strategies"]:checked')) progress++;
+            if (form.querySelector('textarea[name="q20_library_role"]')?.value.trim() || 
+                form.querySelector('textarea[name="q20_iemt_role"]')?.value.trim() ||
+                form.querySelector('textarea[name="q20_dept_role"]')?.value.trim() ||
+                form.querySelector('textarea[name="q20_mgmt_role"]')?.value.trim()) progress++;
+            if (form.querySelector('input[name="q21_components"]:checked')) progress++;
+            if (form.querySelector('input[name="q22_measures"]:checked')) progress++;
+
+            const pct = Math.min(Math.round((progress / total) * 100), 100);
+            document.getElementById('progress-bar').style.width = pct + '%';
+            document.getElementById('progress-text').textContent = pct + '% Complete (' + progress + '/' + total + ' questions)';
+
+            // Update section completion indicators
+            ['A','B','C','D','E','F'].forEach(sec => {
+                const sectionEl = document.getElementById('section-' + sec.toLowerCase());
+                const cards = sectionEl.querySelectorAll('.question-card');
+                let secAnswered = 0;
+                cards.forEach(card => {
+                    const inputs = card.querySelectorAll('input:checked, textarea');
+                    let hasAnswer = false;
+                    inputs.forEach(inp => {
+                        if (inp.type === 'textarea' && inp.value.trim()) hasAnswer = true;
+                        if (inp.checked) hasAnswer = true;
+                    });
+                    if (hasAnswer) secAnswered++;
+                });
+                if (secAnswered >= cards.length && cards.length > 0) {
+                    sectionEl.classList.add('border-green-500');
+                }
+            });
+        }
+
+        // Scroll to section
+        function scrollToSection(id) {
+            const element = document.getElementById(id);
+            if (element) {
+                element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        }
+
+        // Export responses
+        function exportResponses() {
+            let output = 'OER INTERVIEW GUIDE RESPONSES\n';
+            output += '================================\n';
+            output += 'Researcher: Nelson Msagati\n';
+            output += 'Date: 22nd August, 2026\n';
+            output += 'Study: Utilization of Open Educational Resources (OER) to Support Teaching and Learning\n';
+            output += '      for Undergraduate Distance Students at the Open University of Tanzania\n';
+            output += 'Institution: University of South Africa (UNISA)\n';
+            output += 'Target: Library Staff\n';
+            output += '================================\n\n';
+
+            const consent = document.querySelector('input[name="consent"]:checked');
+            output += 'INFORMED CONSENT\n';
+            output += '----------------\n';
+            output += 'Consent to proceed and record: ' + (consent ? consent.value : 'NOT PROVIDED') + '\n\n';
+
+            const form = document.getElementById('interview-form');
+            const formData = new FormData(form);
+
+            const sections = [
+                { title: 'SECTION A: BACKGROUND INFORMATION', fields: ['q1_position'] },
+                { title: 'SECTION B: AWARENESS OF OER', fields: ['q2_awareness', 'q2_elaborate', 'q3_evidence', 'q4_strategies', 'q4_details', 'q5_training'] },
+                { title: 'SECTION C: UTILIZATION OF OER BY STUDENTS', fields: ['q6_types', 'q6_details', 'q7_access', 'q8_frequent', 'q9_monitoring', 'q9_details', 'q10_quality', 'q11_staff_role'] },
+                { title: 'SECTION D: ATTITUDES TOWARDS OER UTILIZATION', fields: ['q12_attitude', 'q12_elaborate', 'q13_factors', 'q13_details'] },
+                { title: 'SECTION E: CHALLENGES FACED IN UTILIZING OER', fields: ['q14_challenges', 'q14_details', 'impact_internet', 'impact_devices', 'impact_skills', 'q15_details', 'q16_institutional', 'q16_details', 'q17_support', 'q17_details'] },
+                { title: 'SECTION F: FRAMEWORK RECOMMENDATIONS', fields: ['q18_policies', 'q18_details', 'q19_strategies', 'q19_details', 'q20_library_role', 'q20_iemt_role', 'q20_dept_role', 'q20_mgmt_role', 'q21_components', 'q21_details', 'q22_measures', 'q22_details'] }
+            ];
+
+            sections.forEach(sec => {
+                output += sec.title + '\n';
+                output += '-'.repeat(50) + '\n';
+                sec.fields.forEach(field => {
+                    const values = formData.getAll(field);
+                    if (values.length > 0 && values.some(v => v.trim())) {
+                        output += field + ': ' + values.join(', ') + '\n';
+                    }
+                });
+                output += '\n';
+            });
+
+            const blob = new Blob([output], { type: 'text/plain' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'OER_Interview_Responses_' + new Date().toISOString().slice(0,10) + '.txt';
+            a.click();
+            URL.revokeObjectURL(url);
+        }
+
+        // Submit form
+        function submitForm() {
+            const refId = 'OER-' + Date.now() + '-' + Math.random().toString(36).substr(2, 5).toUpperCase();
+            document.getElementById('ref-id').textContent = refId;
+
+            document.getElementById('interview-form').style.display = 'none';
+            document.getElementById('submit-section').style.display = 'none';
+            document.querySelector('.sticky-nav').style.display = 'none';
+            document.getElementById('thank-you').classList.remove('hidden');
+
+            window.scrollTo(0, 0);
+
+            console.log('Interview submitted with reference:', refId);
+            markAsSubmitted(); // Lock: prevent re-submission
+        }
+
+        // Auto-save
+        let autoSaveTimer;
+        document.addEventListener('input', () => {
+            clearTimeout(autoSaveTimer);
+            autoSaveTimer = setTimeout(() => {
+                console.log('Auto-saving draft...');
+            }, 3000);
+        });
+    </script>
+</body>
+</html>
