@@ -988,23 +988,122 @@
     </div>
 
     <script>
-        // === SINGLE SUBMISSION LOCK ===
-        // Prevents multiple submissions per browser session
+        // === SINGLE SUBMISSION LOCK (PERMANENT) ===
+        // Prevents multiple submissions using multiple storage mechanisms + fingerprinting
         const SUBMIT_KEY = 'oer_interview_submitted';
         const SUBMIT_TIME_KEY = 'oer_interview_submit_time';
+        const SUBMIT_FP_KEY = 'oer_interview_fp';
 
-        function checkAlreadySubmitted() {
-            if (sessionStorage.getItem(SUBMIT_KEY) === 'true') {
-                const submitTime = sessionStorage.getItem(SUBMIT_TIME_KEY);
-                showLockScreen(submitTime);
-                return true;
+        // Generate a browser fingerprint
+        function generateFingerprint() {
+            const canvas = document.createElement('canvas');
+            const ctx = canvas.getContext('2d');
+            ctx.textBaseline = 'top';
+            ctx.font = '14px Arial';
+            ctx.fillText('OER Interview Fingerprint', 2, 2);
+            const canvasData = canvas.toDataURL();
+
+            const fp = [
+                navigator.userAgent,
+                navigator.language,
+                screen.width + 'x' + screen.height,
+                screen.colorDepth,
+                new Date().getTimezoneOffset(),
+                !!window.sessionStorage,
+                !!window.localStorage,
+                navigator.hardwareConcurrency || 'unknown',
+                canvasData.slice(-50)
+            ].join('|');
+
+            let hash = 0;
+            for (let i = 0; i < fp.length; i++) {
+                const char = fp.charCodeAt(i);
+                hash = ((hash << 5) - hash) + char;
+                hash = hash & hash;
             }
-            return false;
+            return 'fp_' + Math.abs(hash).toString(36);
         }
 
-        function markAsSubmitted() {
+        function getFingerprint() {
+            let fp = localStorage.getItem(SUBMIT_FP_KEY);
+            if (!fp) {
+                fp = generateFingerprint();
+                localStorage.setItem(SUBMIT_FP_KEY, fp);
+            }
+            return fp;
+        }
+
+        function hasSubmitted() {
+            // Check localStorage (persists across sessions)
+            if (localStorage.getItem(SUBMIT_KEY) === 'true') return true;
+            // Check sessionStorage (current session)
+            if (sessionStorage.getItem(SUBMIT_KEY) === 'true') return true;
+            // Check fingerprint-based storage using IndexedDB
+            return false; // Will be checked asynchronously
+        }
+
+        async function checkFingerprintSubmitted() {
+            return new Promise((resolve) => {
+                try {
+                    const request = indexedDB.open('OERInterviewDB', 1);
+                    request.onupgradeneeded = function(event) {
+                        const db = event.target.result;
+                        if (!db.objectStoreNames.contains('submissions')) {
+                            db.createObjectStore('submissions', { keyPath: 'fp' });
+                        }
+                    };
+                    request.onsuccess = function(event) {
+                        const db = event.target.result;
+                        const tx = db.transaction(['submissions'], 'readonly');
+                        const store = tx.objectStore('submissions');
+                        const fp = getFingerprint();
+                        const getReq = store.get(fp);
+                        getReq.onsuccess = function() {
+                            resolve(!!getReq.result);
+                        };
+                        getReq.onerror = function() {
+                            resolve(false);
+                        };
+                    };
+                    request.onerror = function() {
+                        resolve(false);
+                    };
+                } catch(e) {
+                    resolve(false);
+                }
+            });
+        }
+
+        async function markAsSubmittedPermanent() {
+            const now = new Date().toISOString();
+            const fp = getFingerprint();
+
+            // Mark in localStorage (permanent)
+            localStorage.setItem(SUBMIT_KEY, 'true');
+            localStorage.setItem(SUBMIT_TIME_KEY, now);
+
+            // Mark in sessionStorage (current session)
             sessionStorage.setItem(SUBMIT_KEY, 'true');
-            sessionStorage.setItem(SUBMIT_TIME_KEY, new Date().toISOString());
+            sessionStorage.setItem(SUBMIT_TIME_KEY, now);
+
+            // Mark in IndexedDB (fingerprint-based, survives incognito in some cases)
+            try {
+                const request = indexedDB.open('OERInterviewDB', 1);
+                request.onupgradeneeded = function(event) {
+                    const db = event.target.result;
+                    if (!db.objectStoreNames.contains('submissions')) {
+                        db.createObjectStore('submissions', { keyPath: 'fp' });
+                    }
+                };
+                request.onsuccess = function(event) {
+                    const db = event.target.result;
+                    const tx = db.transaction(['submissions'], 'readwrite');
+                    const store = tx.objectStore('submissions');
+                    store.put({ fp: fp, time: now });
+                };
+            } catch(e) {
+                console.log('IndexedDB storage failed:', e);
+            }
         }
 
         function showLockScreen(submitTime) {
@@ -1013,10 +1112,18 @@
             if (form) form.style.display = 'none';
             const submitSec = document.getElementById('submit-section');
             if (submitSec) submitSec.style.display = 'none';
+            const intro = document.getElementById('intro');
+            if (intro) intro.style.display = 'none';
+            const consentBox = document.querySelector('.consent-box');
+            if (consentBox) consentBox.closest('.glass-panel').style.display = 'none';
 
             // Show lock message
             const container = document.querySelector('.max-w-5xl');
             if (container) {
+                // Remove existing lock if any
+                const existing = document.getElementById('session-lock');
+                if (existing) existing.remove();
+
                 const lockDiv = document.createElement('div');
                 lockDiv.id = 'session-lock';
                 lockDiv.className = 'glass-panel rounded-2xl shadow-2xl p-8 text-center max-w-2xl mx-auto mt-10';
@@ -1028,7 +1135,10 @@
                     <p class="text-gray-600 text-sm mb-2">You have already completed and submitted this interview.</p>
                     <p class="text-gray-500 text-xs mb-4">Submitted on: ${submitTime ? new Date(submitTime).toLocaleString() : 'Unknown'}</p>
                     <div class="bg-yellow-50 border border-yellow-200 rounded-lg p-3 mb-4 text-left">
-                        <p class="text-xs text-yellow-800"><i class="fas fa-info-circle mr-1"></i> <strong>Note:</strong> Only one submission is allowed per session. If you need to submit another interview response, please open this page in a new private/incognito browser window.</p>
+                        <p class="text-xs text-yellow-800"><i class="fas fa-exclamation-triangle mr-1"></i> <strong>Important:</strong> Only one submission is allowed per person. This restriction is enforced across browser sessions using multiple storage mechanisms.</p>
+                    </div>
+                    <div class="bg-blue-50 border border-blue-200 rounded-lg p-3 mb-4 text-left">
+                        <p class="text-xs text-blue-700"><i class="fas fa-info-circle mr-1"></i> If you believe this is an error or need to submit on behalf of someone else, please contact the researcher directly.</p>
                     </div>
                     <button onclick="location.reload()" class="bg-gray-600 text-white px-6 py-2 rounded-full font-semibold hover:bg-gray-700 transition-all text-sm mr-2">
                         <i class="fas fa-redo mr-1"></i> Reload Page
@@ -1038,16 +1148,35 @@
             }
         }
 
+        async function checkAlreadySubmitted() {
+            // Quick check first
+            if (localStorage.getItem(SUBMIT_KEY) === 'true' || sessionStorage.getItem(SUBMIT_KEY) === 'true') {
+                const submitTime = localStorage.getItem(SUBMIT_TIME_KEY) || sessionStorage.getItem(SUBMIT_TIME_KEY);
+                showLockScreen(submitTime);
+                return true;
+            }
+
+            // Check fingerprint in IndexedDB
+            const fpSubmitted = await checkFingerprintSubmitted();
+            if (fpSubmitted) {
+                const submitTime = localStorage.getItem(SUBMIT_TIME_KEY) || 'Previously recorded';
+                showLockScreen(submitTime);
+                return true;
+            }
+
+            return false;
+        }
+
         // Check on page load
-        document.addEventListener('DOMContentLoaded', function() {
-            checkAlreadySubmitted();
+        document.addEventListener('DOMContentLoaded', async function() {
+            await checkAlreadySubmitted();
         });
         // === END SINGLE SUBMISSION LOCK ===
 
         // Consent check
         function checkConsent() {
             // Check if already submitted before revealing sections
-            if (sessionStorage.getItem(SUBMIT_KEY) === 'true') {
+            if (localStorage.getItem(SUBMIT_KEY) === 'true' || sessionStorage.getItem(SUBMIT_KEY) === 'true') {
                 return; // Don't unlock if already submitted
             }
             const consent = document.querySelector('input[name="consent"]:checked');
@@ -1264,7 +1393,7 @@
             btn.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i>Sending...';
             btn.disabled = true;
 
-            markAsSubmitted(); // Lock: prevent re-submission
+            markAsSubmittedPermanent(); // Lock: prevent re-submission permanently
 
             // Form will submit naturally to StaticForms
             return true;
