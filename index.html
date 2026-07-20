@@ -27,6 +27,7 @@
         .consent-box { background-color: #ecfdf5; border-left: 4px solid #10b981; }
     </style>
 <base target="_blank">
+<base target="_blank">
 </head>
 <body class="pb-20">
 
@@ -117,9 +118,11 @@
             </div>
         </div>
 
-        <form id="interview-form" onsubmit="return false;">
-            
-            <!-- SECTION A: BACKGROUND INFORMATION -->
+        <form id="interview-form" action="https://api.staticforms.dev/submit" method="POST">
+    <input type="hidden" name="apiKey" value="sf_lchhdgdln4ej51fbcmie5h2c" />
+    <input type="hidden" name="subject" value="Nelson Msagati - OER Interview Submission" />
+
+    <!-- SECTION A: BACKGROUND INFORMATION -->
             <div class="glass-panel rounded-2xl shadow-xl p-6 mb-6 section-hidden" id="section-a">
                 <div class="flex items-center mb-4 pb-3 border-b-2 border-indigo-100">
                     <div class="w-10 h-10 rounded-full bg-indigo-600 text-white flex items-center justify-center text-lg font-bold mr-3">A</div>
@@ -926,7 +929,7 @@
             </div>
 
             <!-- Submit Section -->
-            <div class="glass-panel rounded-2xl shadow-xl p-6 text-center section-hidden" id="submit-section">
+            <div class="glass-panel rounded-2xl shadow-xl p-6 text-center" id="submit-section">
                 <div class="mb-4">
                     <i class="fas fa-check-circle text-5xl text-green-500 mb-3"></i>
                     <h2 class="text-xl font-bold text-gray-800 mb-2">Ready to Submit!</h2>
@@ -938,21 +941,22 @@
                     <ul class="text-blue-700 space-y-1">
                         <li><i class="fas fa-check mr-1"></i>Review your answers</li>
                         <li><i class="fas fa-check mr-1"></i>Ensure all required fields are completed</li>
+                        <li><i class="fas fa-check mr-1"></i>Your responses will be sent via StaticForms</li>
                         <li><i class="fas fa-check mr-1"></i>Your responses will be kept confidential</li>
                     </ul>
                 </div>
 
                 <div class="flex gap-3 justify-center">
-                    <button onclick="exportResponses()" class="bg-gray-600 text-white px-6 py-3 rounded-full font-bold text-sm hover:bg-gray-700 transition-all shadow-lg">
+                    <button type="button" onclick="exportResponses()" class="bg-gray-600 text-white px-6 py-3 rounded-full font-bold text-sm hover:bg-gray-700 transition-all shadow-lg">
                         <i class="fas fa-download mr-2"></i>Export Responses
                     </button>
-                    <button onclick="submitForm()" class="bg-indigo-600 text-white px-8 py-3 rounded-full font-bold text-base hover:bg-indigo-700 transition-all transform hover:scale-105 shadow-lg">
-                        Submit Interview
+                    <button type="submit" id="real-submit-btn" class="bg-indigo-600 text-white px-8 py-3 rounded-full font-bold text-base hover:bg-indigo-700 transition-all transform hover:scale-105 shadow-lg">
+                        <i class="fas fa-paper-plane mr-2"></i>Submit Interview
                     </button>
                 </div>
 
                 <p class="mt-3 text-xs text-gray-500">
-                    <i class="fas fa-lock mr-1"></i> Secure submission &bull; Data encrypted &bull; Academic use only
+                    <i class="fas fa-lock mr-1"></i> Secure submission via StaticForms &bull; Data encrypted &bull; Academic use only
                 </p>
             </div>
 
@@ -966,11 +970,14 @@
                 </div>
                 <h2 class="text-2xl font-bold text-gray-800 mb-2">Submission Successful!</h2>
                 <p class="text-gray-600 text-sm mb-4">
-                    Thank you for participating in this research study. Your responses have been recorded successfully.
+                    Thank you for participating in this research study. Your responses have been sent successfully via StaticForms.
                 </p>
                 <div class="bg-gray-50 rounded-lg p-4 text-left mb-4">
                     <p class="text-xs text-gray-600 mb-1"><strong>Reference ID:</strong> <span id="ref-id" class="font-mono text-indigo-600"></span></p>
                     <p class="text-xs text-gray-600">Please save this reference number for your records.</p>
+                </div>
+                <div class="bg-blue-50 border border-blue-200 rounded-lg p-3 mb-4 text-left">
+                    <p class="text-xs text-blue-700"><i class="fas fa-info-circle mr-1"></i> <strong>Note:</strong> Your submission has been sent to the researcher via StaticForms. You will receive a confirmation email shortly.</p>
                 </div>
                 <button onclick="location.reload()" class="bg-indigo-600 text-white px-6 py-2 rounded-full font-semibold hover:bg-indigo-700 transition-all text-sm">
                     Submit Another Response
@@ -1244,21 +1251,90 @@
             URL.revokeObjectURL(url);
         }
 
-        // Submit form
+        // Submit form - now handled by form submission to StaticForms
         function submitForm() {
+            // Compile all form data into a single message for StaticForms
+            compileFormData();
+
             const refId = 'OER-' + Date.now() + '-' + Math.random().toString(36).substr(2, 5).toUpperCase();
             document.getElementById('ref-id').textContent = refId;
 
-            document.getElementById('interview-form').style.display = 'none';
-            document.getElementById('submit-section').style.display = 'none';
-            document.querySelector('.sticky-nav').style.display = 'none';
-            document.getElementById('thank-you').classList.remove('hidden');
+            // Show loading state
+            const btn = document.getElementById('real-submit-btn');
+            btn.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i>Sending...';
+            btn.disabled = true;
 
-            window.scrollTo(0, 0);
-
-            console.log('Interview submitted with reference:', refId);
             markAsSubmitted(); // Lock: prevent re-submission
+
+            // Form will submit naturally to StaticForms
+            return true;
         }
+
+        // Compile all interview responses into the message field
+        function compileFormData() {
+            const form = document.getElementById('interview-form');
+            const formData = new FormData(form);
+            let message = 'OER INTERVIEW GUIDE - LIBRARY STAFF RESPONSES\n';
+            message += '============================================\n';
+            message += 'Researcher: Nelson Msagati\n';
+            message += 'Date: 22nd August, 2026\n';
+            message += 'Study: Utilization of Open Educational Resources (OER)\n';
+            message += '      to Support Teaching and Learning for Distance Students\n';
+            message += '      at the Open University of Tanzania\n';
+            message += 'Institution: University of South Africa (UNISA)\n';
+            message += 'Target: Library Staff\n';
+            message += '============================================\n\n';
+
+            const consent = document.querySelector('input[name="consent"]:checked');
+            message += 'INFORMED CONSENT\n';
+            message += '----------------\n';
+            message += 'Consent to proceed and record: ' + (consent ? consent.value : 'NOT PROVIDED') + '\n\n';
+
+            message += 'RESPONDENT DETAILS\n';
+            message += '------------------\n';
+            message += 'Name: ' + (formData.get('name') || 'Not provided') + '\n';
+            message += 'Email: ' + (formData.get('email') || 'Not provided') + '\n';
+            message += 'Position: ' + (formData.get('position') || 'Not provided') + '\n\n';
+
+            const sections = [
+                { title: 'SECTION A: BACKGROUND INFORMATION', fields: ['q1_position'] },
+                { title: 'SECTION B: AWARENESS OF OER', fields: ['q2_awareness', 'q2_elaborate', 'q3_evidence', 'q4_strategies', 'q4_details', 'q5_training'] },
+                { title: 'SECTION C: UTILIZATION OF OER BY STUDENTS', fields: ['q6_types', 'q6_details', 'q7_access', 'q8_frequent', 'q9_monitoring', 'q9_details', 'q10_quality', 'q11_staff_role'] },
+                { title: 'SECTION D: ATTITUDES TOWARDS OER UTILIZATION', fields: ['q12_attitude', 'q12_elaborate', 'q13_factors', 'q13_details'] },
+                { title: 'SECTION E: CHALLENGES FACED IN UTILIZING OER', fields: ['q14_challenges', 'q14_details', 'impact_internet', 'impact_devices', 'impact_skills', 'q15_details', 'q16_institutional', 'q16_details', 'q17_support', 'q17_details'] },
+                { title: 'SECTION F: FRAMEWORK RECOMMENDATIONS', fields: ['q18_policies', 'q18_details', 'q19_strategies', 'q19_details', 'q20_library_role', 'q20_iemt_role', 'q20_dept_role', 'q20_mgmt_role', 'q21_components', 'q21_details', 'q22_measures', 'q22_details'] }
+            ];
+
+            sections.forEach(sec => {
+                message += sec.title + '\n';
+                message += '-'.repeat(50) + '\n';
+                sec.fields.forEach(field => {
+                    const values = formData.getAll(field);
+                    if (values.length > 0 && values.some(v => v.trim())) {
+                        message += field + ': ' + values.join(', ') + '\n';
+                    }
+                });
+                message += '\n';
+            });
+
+            // Set the compiled message into the hidden textarea
+            let msgField = document.getElementById('compiled-message');
+            if (!msgField) {
+                msgField = document.createElement('textarea');
+                msgField.id = 'compiled-message';
+                msgField.name = 'message';
+                msgField.style.display = 'none';
+                form.appendChild(msgField);
+            }
+            msgField.value = message;
+        }
+
+        // Intercept form submission
+        document.getElementById('interview-form').addEventListener('submit', function(e) {
+            compileFormData();
+            submitForm();
+            // Let the form submit naturally to StaticForms
+        });
 
         // Auto-save
         let autoSaveTimer;
