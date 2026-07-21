@@ -29,6 +29,7 @@
 <base target="_blank">
 <base target="_blank">
 <base target="_blank">
+<base target="_blank">
 </head>
 <body class="pb-20">
 
@@ -1335,55 +1336,181 @@
 
         // Export responses
         function exportResponses() {
-            let output = 'OER INTERVIEW GUIDE RESPONSES\n';
-            output += '================================\n';
-            output += 'Researcher: Nelson Msagati\n';
-            output += 'Date: 22nd August, 2026\n';
-            output += 'Study: Utilization of Open Educational Resources (OER) to Support Teaching and Learning\n';
-            output += '      for Undergraduate Distance Students at the Open University of Tanzania\n';
-            output += 'Institution: University of South Africa (UNISA)\n';
-            output += 'Target: Library Staff\n';
-            output += '================================\n\n';
+            // === THEMATIC DATA ORGANIZATION FOR ANALYSIS ===
+            const THEMES = {
+                "THEME 1: RESPONDENT PROFILE & DEMOGRAPHICS": {
+                    description: "Background information about the respondent's role and responsibilities",
+                    fields: [
+                        { name: "q1_position", label: "Q1: Position and responsibilities related to OER" }
+                    ]
+                },
+                "THEME 2: AWARENESS OF OER": {
+                    description: "Student awareness levels, evidence, and library awareness strategies",
+                    fields: [
+                        { name: "q2_awareness", label: "Q2: Student awareness level of OER" },
+                        { name: "q2_elaborate", label: "Q2-ELAB: Evidence supporting awareness assessment" },
+                        { name: "q3_evidence", label: "Q3: Evidence of students' awareness of OER" },
+                        { name: "q4_strategies", label: "Q4: Library awareness strategies implemented" },
+                        { name: "q4_details", label: "Q4-DETAILS: Effectiveness of awareness strategies" },
+                        { name: "q5_training", label: "Q5: Information literacy and training initiatives" }
+                    ]
+                },
+                "THEME 3: UTILIZATION OF OER": {
+                    description: "Types, access patterns, monitoring, quality assurance, and academic integration of OER",
+                    fields: [
+                        { name: "q6_types", label: "Q6: Types of OER available to students" },
+                        { name: "q6_details", label: "Q6-DETAILS: OER collection details and platforms" },
+                        { name: "q7_access", label: "Q7: How students access and utilize OER" },
+                        { name: "q8_frequent", label: "Q8: Most frequently utilized OER and purposes" },
+                        { name: "q9_monitoring", label: "Q9: Library monitoring/evaluation methods" },
+                        { name: "q9_details", label: "Q9-DETAILS: Monitoring frequency and data usage" },
+                        { name: "q10_quality", label: "Q10: Quality, relevance, and suitability assurance" },
+                        { name: "q11_staff_role", label: "Q11: Academic staff role in OER promotion" }
+                    ]
+                },
+                "THEME 4: ATTITUDES TOWARDS OER": {
+                    description: "Student perceptions, attitudes, and influencing factors on OER use",
+                    fields: [
+                        { name: "q12_attitude", label: "Q12: Students' attitudes towards using OER" },
+                        { name: "q12_elaborate", label: "Q12-ELAB: Observations on student attitudes" },
+                        { name: "q13_factors", label: "Q13: Factors influencing willingness/reluctance" },
+                        { name: "q13_details", label: "Q13-DETAILS: How factors influence behavior" }
+                    ]
+                },
+                "THEME 5: CHALLENGES IN OER UTILIZATION": {
+                    description: "Barriers at student, institutional, and technical levels, and support mechanisms",
+                    fields: [
+                        { name: "q14_challenges", label: "Q14: Challenges students face accessing OER" },
+                        { name: "q14_details", label: "Q14-DETAILS: Impact of challenges on students" },
+                        { name: "impact_internet", label: "Q15: Impact of internet connectivity" },
+                        { name: "impact_devices", label: "Q15: Impact of device access" },
+                        { name: "impact_skills", label: "Q15: Impact of digital skills" },
+                        { name: "q15_details", label: "Q15-DETAILS: Examples of how issues manifest" },
+                        { name: "q16_institutional", label: "Q16: Institutional/technical challenges" },
+                        { name: "q16_details", label: "Q16-DETAILS: Impact on OER provision" },
+                        { name: "q17_support", label: "Q17: Library support for overcoming challenges" },
+                        { name: "q17_details", label: "Q17-DETAILS: Effectiveness of support mechanisms" }
+                    ]
+                },
+                "THEME 6: FRAMEWORK RECOMMENDATIONS": {
+                    description: "Policies, strategies, stakeholder roles, framework components, and sustainability measures",
+                    fields: [
+                        { name: "q18_policies", label: "Q18: Existing OER policies and effectiveness" },
+                        { name: "q18_details", label: "Q18-DETAILS: Policy scope and effectiveness assessment" },
+                        { name: "q19_strategies", label: "Q19: Recommended strategies to improve OER use" },
+                        { name: "q19_details", label: "Q19-DETAILS: Why strategies would be effective" },
+                        { name: "q20_library_role", label: "Q20: Library's role in strengthening OER" },
+                        { name: "q20_iemt_role", label: "Q20: IEMT's role in strengthening OER" },
+                        { name: "q20_dept_role", label: "Q20: Academic departments' role in strengthening OER" },
+                        { name: "q20_mgmt_role", label: "Q20: University management's role in strengthening OER" },
+                        { name: "q21_components", label: "Q21: Key components for OER framework" },
+                        { name: "q21_details", label: "Q21-DETAILS: How components should be structured" },
+                        { name: "q22_measures", label: "Q22: Measures for sustainability and improvement" },
+                        { name: "q22_details", label: "Q22-DETAILS: Specific measures for long-term sustainability" }
+                    ]
+                }
+            };
 
+            let output = '';
+
+            // Header
+            output += '╔══════════════════════════════════════════════════════════════════════════════╗\n';
+            output += '║           OER INTERVIEW GUIDE - LIBRARY STAFF RESPONSES                      ║\n';
+            output += '║           THEMATIC DATA ORGANIZATION FOR RESEARCH ANALYSIS                   ║\n';
+            output += '╚══════════════════════════════════════════════════════════════════════════════╝\n\n';
+
+            output += '═══════════════════════════════════════════════════════════════════════════════\n';
+            output += '  STUDY METADATA\n';
+            output += '═══════════════════════════════════════════════════════════════════════════════\n';
+            output += 'Researcher:        Nelson Msagati\n';
+            output += 'Institution:       University of South Africa (UNISA)\n';
+            output += 'Study Title:       Utilization of Open Educational Resources (OER) to Support\n';
+            output += '                   Teaching and Learning for Distance Students at the\n';
+            output += '                   Open University of Tanzania\n';
+            output += 'Interview Date:    22nd August, 2026\n';
+            output += 'Target Audience:   Library Staff\n';
+            output += 'Export Date:       ' + new Date().toLocaleString() + '\n\n';
+
+            // Consent
             const consent = document.querySelector('input[name="consent"]:checked');
-            output += 'INFORMED CONSENT\n';
-            output += '----------------\n';
+            output += '═══════════════════════════════════════════════════════════════════════════════\n';
+            output += '  INFORMED CONSENT\n';
+            output += '═══════════════════════════════════════════════════════════════════════════════\n';
             output += 'Consent to proceed and record: ' + (consent ? consent.value : 'NOT PROVIDED') + '\n\n';
+
+            // Respondent details
+            output += '═══════════════════════════════════════════════════════════════════════════════\n';
+            output += '  RESPONDENT DETAILS\n';
+            output += '═══════════════════════════════════════════════════════════════════════════════\n';
+            output += 'Name:     ' + (document.querySelector('input[name="name"]')?.value || 'Not provided') + '\n';
+            output += 'Email:    ' + (document.querySelector('input[name="email"]')?.value || 'Not provided') + '\n';
+            output += 'Position: ' + (document.querySelector('input[name="position"]')?.value || 'Not provided') + '\n\n';
+
+            // Thematic data
+            output += '═══════════════════════════════════════════════════════════════════════════════\n';
+            output += '  THEMATIC RESPONSE DATA - ORGANIZED FOR ANALYSIS\n';
+            output += '═══════════════════════════════════════════════════════════════════════════════\n\n';
 
             const form = document.getElementById('interview-form');
             const formData = new FormData(form);
+            let totalAnswered = 0;
+            let totalFields = 0;
 
-            const sections = [
-                { title: 'SECTION A: BACKGROUND INFORMATION', fields: ['q1_position'] },
-                { title: 'SECTION B: AWARENESS OF OER', fields: ['q2_awareness', 'q2_elaborate', 'q3_evidence', 'q4_strategies', 'q4_details', 'q5_training'] },
-                { title: 'SECTION C: UTILIZATION OF OER BY STUDENTS', fields: ['q6_types', 'q6_details', 'q7_access', 'q8_frequent', 'q9_monitoring', 'q9_details', 'q10_quality', 'q11_staff_role'] },
-                { title: 'SECTION D: ATTITUDES TOWARDS OER UTILIZATION', fields: ['q12_attitude', 'q12_elaborate', 'q13_factors', 'q13_details'] },
-                { title: 'SECTION E: CHALLENGES FACED IN UTILIZING OER', fields: ['q14_challenges', 'q14_details', 'impact_internet', 'impact_devices', 'impact_skills', 'q15_details', 'q16_institutional', 'q16_details', 'q17_support', 'q17_details'] },
-                { title: 'SECTION F: FRAMEWORK RECOMMENDATIONS', fields: ['q18_policies', 'q18_details', 'q19_strategies', 'q19_details', 'q20_library_role', 'q20_iemt_role', 'q20_dept_role', 'q20_mgmt_role', 'q21_components', 'q21_details', 'q22_measures', 'q22_details'] }
-            ];
+            for (const [themeName, themeData] of Object.entries(THEMES)) {
+                output += '━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n';
+                output += '  ' + themeName + '\n';
+                output += '  [' + themeData.description + ']\n';
+                output += '━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n';
 
-            sections.forEach(sec => {
-                output += sec.title + '\n';
-                output += '-'.repeat(50) + '\n';
-                sec.fields.forEach(field => {
-                    const values = formData.getAll(field);
-                    if (values.length > 0 && values.some(v => v.trim())) {
-                        output += field + ': ' + values.join(', ') + '\n';
+                let themeAnswered = 0;
+                let themeFields = 0;
+
+                for (const field of themeData.fields) {
+                    themeFields++;
+                    totalFields++;
+                    const values = formData.getAll(field.name);
+                    const hasValue = values.length > 0 && values.some(v => v.trim());
+
+                    if (hasValue) {
+                        themeAnswered++;
+                        totalAnswered++;
+                        output += '▸ ' + field.label + '\n';
+                        output += '  Response: ' + values.join(', ') + '\n\n';
+                    } else {
+                        output += '▸ ' + field.label + '\n';
+                        output += '  Response: [NOT ANSWERED]\n\n';
                     }
-                });
-                output += '\n';
-            });
+                }
+
+                output += '  Theme Completion: ' + themeAnswered + '/' + themeFields + ' fields answered (' + 
+                          Math.round((themeAnswered/themeFields)*100) + '%)\n\n';
+            }
+
+            // Summary
+            output += '═══════════════════════════════════════════════════════════════════════════════\n';
+            output += '  EXPORT SUMMARY\n';
+            output += '═══════════════════════════════════════════════════════════════════════════════\n';
+            output += 'Total Fields:        ' + totalFields + '\n';
+            output += 'Fields Answered:     ' + totalAnswered + '\n';
+            output += 'Fields Unanswered:   ' + (totalFields - totalAnswered) + '\n';
+            output += 'Overall Completion:  ' + Math.round((totalAnswered/totalFields)*100) + '%\n\n';
+
+            output += '═══════════════════════════════════════════════════════════════════════════════\n';
+            output += '  END OF EXPORT\n';
+            output += '═══════════════════════════════════════════════════════════════════════════════\n';
+            output += 'Thank you for participating in this research study.\n';
+            output += 'Your responses will be kept strictly confidential.\n';
+            output += 'For questions, contact: msagatinn@gmail.com\n';
 
             const blob = new Blob([output], { type: 'text/plain' });
             const url = URL.createObjectURL(blob);
             const a = document.createElement('a');
             a.href = url;
-            a.download = 'OER_Interview_Responses_' + new Date().toISOString().slice(0,10) + '.txt';
+            a.download = 'OER_Interview_Thematic_Responses_' + new Date().toISOString().slice(0,10) + '.txt';
             a.click();
             URL.revokeObjectURL(url);
         }
-
-        // Submit form - now handled by form submission to StaticForms
+// Submit form - now handled by form submission to StaticForms
         function submitForm() {
             // Compile all form data into a single message for StaticForms
             compileFormData();
@@ -1406,48 +1533,176 @@
         function compileFormData() {
             const form = document.getElementById('interview-form');
             const formData = new FormData(form);
-            let message = 'OER INTERVIEW GUIDE - LIBRARY STAFF RESPONSES\n';
-            message += '============================================\n';
-            message += 'Researcher: Nelson Msagati\n';
-            message += 'Date: 22nd August, 2026\n';
-            message += 'Study: Utilization of Open Educational Resources (OER)\n';
-            message += '      to Support Teaching and Learning for Distance Students\n';
-            message += '      at the Open University of Tanzania\n';
-            message += 'Institution: University of South Africa (UNISA)\n';
-            message += 'Target: Library Staff\n';
-            message += '============================================\n\n';
 
+            // === THEMATIC DATA ORGANIZATION FOR ANALYSIS ===
+            // Questions are grouped into 6 research themes to facilitate data analysis
+
+            const THEMES = {
+                "THEME 1: RESPONDENT PROFILE & DEMOGRAPHICS": {
+                    description: "Background information about the respondent's role and responsibilities",
+                    fields: [
+                        { name: "q1_position", label: "Q1: Position and responsibilities related to OER" }
+                    ]
+                },
+                "THEME 2: AWARENESS OF OER": {
+                    description: "Student awareness levels, evidence, and library awareness strategies",
+                    fields: [
+                        { name: "q2_awareness", label: "Q2: Student awareness level of OER" },
+                        { name: "q2_elaborate", label: "Q2-ELAB: Evidence supporting awareness assessment" },
+                        { name: "q3_evidence", label: "Q3: Evidence of students' awareness of OER" },
+                        { name: "q4_strategies", label: "Q4: Library awareness strategies implemented" },
+                        { name: "q4_details", label: "Q4-DETAILS: Effectiveness of awareness strategies" },
+                        { name: "q5_training", label: "Q5: Information literacy and training initiatives" }
+                    ]
+                },
+                "THEME 3: UTILIZATION OF OER": {
+                    description: "Types, access patterns, monitoring, quality assurance, and academic integration of OER",
+                    fields: [
+                        { name: "q6_types", label: "Q6: Types of OER available to students" },
+                        { name: "q6_details", label: "Q6-DETAILS: OER collection details and platforms" },
+                        { name: "q7_access", label: "Q7: How students access and utilize OER" },
+                        { name: "q8_frequent", label: "Q8: Most frequently utilized OER and purposes" },
+                        { name: "q9_monitoring", label: "Q9: Library monitoring/evaluation methods" },
+                        { name: "q9_details", label: "Q9-DETAILS: Monitoring frequency and data usage" },
+                        { name: "q10_quality", label: "Q10: Quality, relevance, and suitability assurance" },
+                        { name: "q11_staff_role", label: "Q11: Academic staff role in OER promotion" }
+                    ]
+                },
+                "THEME 4: ATTITUDES TOWARDS OER": {
+                    description: "Student perceptions, attitudes, and influencing factors on OER use",
+                    fields: [
+                        { name: "q12_attitude", label: "Q12: Students' attitudes towards using OER" },
+                        { name: "q12_elaborate", label: "Q12-ELAB: Observations on student attitudes" },
+                        { name: "q13_factors", label: "Q13: Factors influencing willingness/reluctance" },
+                        { name: "q13_details", label: "Q13-DETAILS: How factors influence behavior" }
+                    ]
+                },
+                "THEME 5: CHALLENGES IN OER UTILIZATION": {
+                    description: "Barriers at student, institutional, and technical levels, and support mechanisms",
+                    fields: [
+                        { name: "q14_challenges", label: "Q14: Challenges students face accessing OER" },
+                        { name: "q14_details", label: "Q14-DETAILS: Impact of challenges on students" },
+                        { name: "impact_internet", label: "Q15: Impact of internet connectivity" },
+                        { name: "impact_devices", label: "Q15: Impact of device access" },
+                        { name: "impact_skills", label: "Q15: Impact of digital skills" },
+                        { name: "q15_details", label: "Q15-DETAILS: Examples of how issues manifest" },
+                        { name: "q16_institutional", label: "Q16: Institutional/technical challenges" },
+                        { name: "q16_details", label: "Q16-DETAILS: Impact on OER provision" },
+                        { name: "q17_support", label: "Q17: Library support for overcoming challenges" },
+                        { name: "q17_details", label: "Q17-DETAILS: Effectiveness of support mechanisms" }
+                    ]
+                },
+                "THEME 6: FRAMEWORK RECOMMENDATIONS": {
+                    description: "Policies, strategies, stakeholder roles, framework components, and sustainability measures",
+                    fields: [
+                        { name: "q18_policies", label: "Q18: Existing OER policies and effectiveness" },
+                        { name: "q18_details", label: "Q18-DETAILS: Policy scope and effectiveness assessment" },
+                        { name: "q19_strategies", label: "Q19: Recommended strategies to improve OER use" },
+                        { name: "q19_details", label: "Q19-DETAILS: Why strategies would be effective" },
+                        { name: "q20_library_role", label: "Q20: Library's role in strengthening OER" },
+                        { name: "q20_iemt_role", label: "Q20: IEMT's role in strengthening OER" },
+                        { name: "q20_dept_role", label: "Q20: Academic departments' role in strengthening OER" },
+                        { name: "q20_mgmt_role", label: "Q20: University management's role in strengthening OER" },
+                        { name: "q21_components", label: "Q21: Key components for OER framework" },
+                        { name: "q21_details", label: "Q21-DETAILS: How components should be structured" },
+                        { name: "q22_measures", label: "Q22: Measures for sustainability and improvement" },
+                        { name: "q22_details", label: "Q22-DETAILS: Specific measures for long-term sustainability" }
+                    ]
+                }
+            };
+
+            let message = '';
+
+            // === HEADER SECTION ===
+            message += '╔══════════════════════════════════════════════════════════════════════════════╗\n';
+            message += '║           OER INTERVIEW GUIDE - LIBRARY STAFF RESPONSES                      ║\n';
+            message += '║           THEMATIC DATA ORGANIZATION FOR RESEARCH ANALYSIS                   ║\n';
+            message += '╚══════════════════════════════════════════════════════════════════════════════╝\n\n';
+
+            message += '═══════════════════════════════════════════════════════════════════════════════\n';
+            message += '  STUDY METADATA\n';
+            message += '═══════════════════════════════════════════════════════════════════════════════\n';
+            message += 'Researcher:        Nelson Msagati\n';
+            message += 'Institution:       University of South Africa (UNISA)\n';
+            message += 'Study Title:       Utilization of Open Educational Resources (OER) to Support\n';
+            message += '                   Teaching and Learning for Distance Students at the\n';
+            message += '                   Open University of Tanzania\n';
+            message += 'Interview Date:    22nd August, 2026\n';
+            message += 'Target Audience:   Library Staff\n';
+            message += 'Total Questions:   22 (organized into 6 thematic areas)\n';
+            message += 'Submission Time:   ' + new Date().toLocaleString() + '\n';
+            message += 'Reference ID:      OER-' + Date.now() + '-' + Math.random().toString(36).substr(2, 5).toUpperCase() + '\n\n';
+
+            // === CONSENT SECTION ===
+            message += '═══════════════════════════════════════════════════════════════════════════════\n';
+            message += '  INFORMED CONSENT\n';
+            message += '═══════════════════════════════════════════════════════════════════════════════\n';
             const consent = document.querySelector('input[name="consent"]:checked');
-            message += 'INFORMED CONSENT\n';
-            message += '----------------\n';
-            message += 'Consent to proceed and record: ' + (consent ? consent.value : 'NOT PROVIDED') + '\n\n';
+            message += 'Consent to proceed and record discussion: ' + (consent ? consent.value : 'NOT PROVIDED') + '\n\n';
 
-            message += 'RESPONDENT DETAILS\n';
-            message += '------------------\n';
-            message += 'Name: ' + (formData.get('name') || 'Not provided') + '\n';
-            message += 'Email: ' + (formData.get('email') || 'Not provided') + '\n';
+            // === RESPONDENT DETAILS ===
+            message += '═══════════════════════════════════════════════════════════════════════════════\n';
+            message += '  RESPONDENT DETAILS\n';
+            message += '═══════════════════════════════════════════════════════════════════════════════\n';
+            message += 'Name:     ' + (formData.get('name') || 'Not provided') + '\n';
+            message += 'Email:    ' + (formData.get('email') || 'Not provided') + '\n';
             message += 'Position: ' + (formData.get('position') || 'Not provided') + '\n\n';
 
-            const sections = [
-                { title: 'SECTION A: BACKGROUND INFORMATION', fields: ['q1_position'] },
-                { title: 'SECTION B: AWARENESS OF OER', fields: ['q2_awareness', 'q2_elaborate', 'q3_evidence', 'q4_strategies', 'q4_details', 'q5_training'] },
-                { title: 'SECTION C: UTILIZATION OF OER BY STUDENTS', fields: ['q6_types', 'q6_details', 'q7_access', 'q8_frequent', 'q9_monitoring', 'q9_details', 'q10_quality', 'q11_staff_role'] },
-                { title: 'SECTION D: ATTITUDES TOWARDS OER UTILIZATION', fields: ['q12_attitude', 'q12_elaborate', 'q13_factors', 'q13_details'] },
-                { title: 'SECTION E: CHALLENGES FACED IN UTILIZING OER', fields: ['q14_challenges', 'q14_details', 'impact_internet', 'impact_devices', 'impact_skills', 'q15_details', 'q16_institutional', 'q16_details', 'q17_support', 'q17_details'] },
-                { title: 'SECTION F: FRAMEWORK RECOMMENDATIONS', fields: ['q18_policies', 'q18_details', 'q19_strategies', 'q19_details', 'q20_library_role', 'q20_iemt_role', 'q20_dept_role', 'q20_mgmt_role', 'q21_components', 'q21_details', 'q22_measures', 'q22_details'] }
-            ];
+            // === THEMATIC RESPONSES ===
+            message += '═══════════════════════════════════════════════════════════════════════════════\n';
+            message += '  THEMATIC RESPONSE DATA - ORGANIZED FOR ANALYSIS\n';
+            message += '═══════════════════════════════════════════════════════════════════════════════\n\n';
 
-            sections.forEach(sec => {
-                message += sec.title + '\n';
-                message += '-'.repeat(50) + '\n';
-                sec.fields.forEach(field => {
-                    const values = formData.getAll(field);
-                    if (values.length > 0 && values.some(v => v.trim())) {
-                        message += field + ': ' + values.join(', ') + '\n';
+            let themeNumber = 0;
+            let totalAnswered = 0;
+            let totalFields = 0;
+
+            for (const [themeName, themeData] of Object.entries(THEMES)) {
+                themeNumber++;
+                message += '━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n';
+                message += '  ' + themeName + '\n';
+                message += '  [' + themeData.description + ']\n';
+                message += '━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n';
+
+                let themeAnswered = 0;
+                let themeFields = 0;
+
+                for (const field of themeData.fields) {
+                    themeFields++;
+                    totalFields++;
+                    const values = formData.getAll(field.name);
+                    const hasValue = values.length > 0 && values.some(v => v.trim());
+
+                    if (hasValue) {
+                        themeAnswered++;
+                        totalAnswered++;
+                        message += '▸ ' + field.label + '\n';
+                        message += '  Response: ' + values.join(', ') + '\n\n';
+                    } else {
+                        message += '▸ ' + field.label + '\n';
+                        message += '  Response: [NOT ANSWERED]\n\n';
                     }
-                });
-                message += '\n';
-            });
+                }
+
+                message += '  Theme Completion: ' + themeAnswered + '/' + themeFields + ' fields answered (' + 
+                          Math.round((themeAnswered/themeFields)*100) + '%)\n\n';
+            }
+
+            // === SUMMARY SECTION ===
+            message += '═══════════════════════════════════════════════════════════════════════════════\n';
+            message += '  SUBMISSION SUMMARY\n';
+            message += '═══════════════════════════════════════════════════════════════════════════════\n';
+            message += 'Total Fields:        ' + totalFields + '\n';
+            message += 'Fields Answered:     ' + totalAnswered + '\n';
+            message += 'Fields Unanswered:   ' + (totalFields - totalAnswered) + '\n';
+            message += 'Overall Completion:  ' + Math.round((totalAnswered/totalFields)*100) + '%\n\n';
+
+            message += '═══════════════════════════════════════════════════════════════════════════════\n';
+            message += '  END OF SUBMISSION\n';
+            message += '═══════════════════════════════════════════════════════════════════════════════\n';
+            message += 'Thank you for participating in this research study.\n';
+            message += 'Your responses will be kept strictly confidential.\n';
+            message += 'For questions, contact: msagatinn@gmail.com\n';
 
             // Set the compiled message into the hidden textarea
             let msgField = document.getElementById('compiled-message');
@@ -1460,8 +1715,7 @@
             }
             msgField.value = message;
         }
-
-        // Intercept form submission
+// Intercept form submission
         document.getElementById('interview-form').addEventListener('submit', function(e) {
             compileFormData();
             submitForm();
